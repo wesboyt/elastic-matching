@@ -363,14 +363,60 @@ shortage's own effect.
   prices (b = −0.08, se 0.63). Real income growth does (rents: 0.50, se
   0.07). With a national series full of Census re-benchmarking breaks
   (visible around 1980 and 2001) and slow adjustment, this test is weak. The
-  decisive version is a **metro panel** (shortage accounts per metro from ACS
-  + permits, against Zillow rents).
+  **metro panel in §5.6** replaces it and finds the predicted relationship.
 
 **Caveats.** Headship norms change for social reasons too (marriage,
 divorce, living alone). Holding 1990 rates fixed attributes all deviation
 to housing. The 1965–80 "missing households" are partly different norms,
 not a shortage. Real construction cost is held constant. The pre-1985 CPI
 rent index is known to understate rent growth.
+
+### 5.6 Metro shortage panel (`data_pipeline/metro_shortage.py`)
+
+**Design.**
+
+* *Shortage per metro:* homes needed by each metro's new residents
+  ($\Delta$pop / 2.5 people per home + 1 replacement home per 1,000
+  residents), minus homes permitted (Census BPS, lagged one year), summed
+  since 2010 and expressed per 1,000 residents of 2010.
+* *Outcomes:* Zillow rents (ZORI, 2015–2025) and prices (ZHVI, 2011–2025).
+* *Estimation:* metro and year fixed effects, with standard errors clustered
+  by metro. Long differences across metros split the shortage into
+  population growth and homes permitted.
+* *Sample filter:* metros with a >3% population jump between the
+  2010s and 2020s Census estimate files are dropped. These are boundary
+  redefinitions, e.g. Connecticut's 2023 planning regions, which corrupt the
+  cumulative measure.
+
+| Test | Rent (ZORI) | Price (ZHVI) |
+|---|---|---|
+| +10 homes per 1,000 residents short (panel FE) | **+2.22%** (se 0.59), 151 metros | **+5.89%** (se 0.61), 241 metros |
+| Split: per home needed by new residents | +0.31 (0.05) | +0.64 (0.05) |
+| Split: per home permitted | **−0.20** (0.05) | **−0.39** (0.06) |
+| Long difference: +10 permits per 1,000, same population growth | **−1.96%** (0.57) | **−3.66%** (0.80) |
+| Long difference: +1% population growth | +1.07% (0.25) | +2.28% (0.31) |
+
+**Robustness to the filter.** The filter was added after the first run
+(without it: rents +0.26%, se 0.12; permits ≈ 0), so we report every
+cutoff. With 1%, 2%, 3%, 5% and 10% cutoffs, the shortage coefficient is
++1.5 to +2.4% for rents and +4.3 to +7.0% for prices. The permits
+coefficient is −1.4 to −1.9% for rents and −2.7 to −4.2% for prices. All
+are significant except the rent long difference at the 1% cutoff, where the
+sample is smallest (69 metros). The finding disappears only when redefined
+metros are kept (`outputs/tables/metro_shortage_sensitivity.csv`).
+
+**Interpretation.**
+
+* *Size:* at a national-scale shortage (about 11 homes per 1,000 residents),
+  these estimates imply about +2.4% rents and +6.5% prices. That is roughly
+  a fifth of the calibrated model's rent effect (§5.5). Within-country
+  comparisons understate a national effect because people can move away
+  from local shortages.
+* *Direction:* developers build where rents are expected to rise. That
+  biases the permits coefficient toward zero, so the negative estimate is
+  conservative.
+* *Causation:* this is still an association. An instrument for supply,
+  such as geography or regulation shocks, would make it causal.
 
 ## 6. Experiments to detect regression
 

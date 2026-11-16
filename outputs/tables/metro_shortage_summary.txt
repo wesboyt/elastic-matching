@@ -1,0 +1,7 @@
+Metro shortage panel (metro + year fixed effects, SE clustered by metro):
+  Rent (ZORI): +10 homes per 1,000 residents short -> +2.22% (se 0.59); 151 metros x 11 yrs
+     split: homes needed by new residents b=+0.312 (0.050), homes permitted b=-0.198 (0.049) per home per 1,000
+  Price (ZHVI): +10 homes per 1,000 residents short -> +5.89% (se 0.61); 241 metros x 15 yrs
+     split: homes needed by new residents b=+0.636 (0.052), homes permitted b=-0.393 (0.055) per home per 1,000
+  Long difference Rent (ZORI): +10 permits per 1,000 residents -> -1.96% (se 0.57); +1% population growth -> +1.07% (se 0.25); n=151
+  Long difference Price (ZHVI): +10 permits per 1,000 residents -> -3.66% (se 0.80); +1% population growth -> +2.28% (se 0.31); n=243

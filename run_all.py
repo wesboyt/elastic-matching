@@ -21,6 +21,7 @@ STEPS = [
     "sims/s06_imbalance_shape.py",
     "data_pipeline/shortage.py",
     "sims/s07_housing_history.py",
+    "data_pipeline/metro_shortage.py",
 ]
 
 if __name__ == "__main__":

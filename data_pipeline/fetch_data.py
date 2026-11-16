@@ -61,6 +61,10 @@ CENSUS_FILES = {
     "census_cbsa_pop.csv": "https://www2.census.gov/programs-surveys/popest/datasets/2010-2019/metro/totals/cbsa-est2019-alldata.csv",
     **{f"bps_ma{y}a.txt": f"https://www2.census.gov/econ/bps/Metro%20(ending%202023)/ma{y}a.txt"
        for y in range(2004, 2024)},
+    # 2024+ permits use a new folder; metro population 2020-2025
+    **{f"bps_ma{y}a.txt": f"https://www2.census.gov/econ/bps/CBSA%20(beginning%20Jan%202024)/cbsa{y}a.txt"
+       for y in (2024, 2025)},
+    "census_cbsa_pop_2025.csv": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/metro/totals/cbsa-est2025-alldata.csv",
 }
 
 
