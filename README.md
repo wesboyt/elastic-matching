@@ -2,7 +2,7 @@
 
 *How a shortage of about four million homes turns into income taken from renters and new buyers, and leaves the households with the least on the losing side of the housing match.*
 
-Working paper, November 2026. Data: Zillow Research, FRED and US Census (household, vacancy, permit and population series), 1965 to October 2026. Every number below is produced by the code in this repository (`python run_all.py`). The full technical framework, with propositions and proofs, is in [paper/framework.md](paper/framework.md). A styled version of this paper is in [whitepaper/index.html](whitepaper/index.html).
+Working paper, November 2026. Data: Zillow Research, FRED and US Census (household, vacancy, permit and population series), 1965 to October 2026. Every number below is produced by the code in this repository (`python run_all.py`). The full technical framework, with propositions and proofs, is in [paper/framework.md](paper/framework.md). **[Read the formatted whitepaper](https://wesboyt.github.io/elastic-matching/whitepaper/)**.
 
 | | |
 |---|---|
