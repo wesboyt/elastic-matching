@@ -1,0 +1,12 @@
+Base year 2000, latest year 2026 (extrapolated inputs: {'income': [2026], 'renter_hh': [], 'owner_hh': [], 'gdp': []})
+Price/income: 2.99 -> 4.03;  rent/income: 0.185 -> 0.209
+Excess rent per renter household/yr: 2,151 (vs income), 4,850 (vs inflation)
+TRANSFER renters->landlords 2026: $100B (income anchor), $226B (inflation anchor); = 0.31% of GDP
+Cumulative renter transfer 2000-2026 (income anchor, nominal): $1,492B
+Imputed excess on owner-occupied homes 2026: $188B
+Excess home value per home: 93,387 (vs income), 71,311 (vs build cost)
+Excess housing wealth on owner-occupied stock: $8,156B (vs income), $6,228B (vs cost)
+Annual carrying cost of that excess at the mortgage rate: $534B (vs income), $408B (vs cost)
+Decomposition of log(P/Y) change 0.297 = rent squeeze 0.121 + capitalisation 0.176
+DEADWEIGHT LOSS (Harberger, shortage 1.5M/3.8M/7M units): $2B / $4B / $8B
+Base-year sensitivity, renter transfer in latest year (income anchor): 2000: $100B, 2005: $45B, 2012: $-28B

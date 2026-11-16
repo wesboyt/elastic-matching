@@ -1,0 +1,5 @@
+# downloaded public data: re-create with `python data_pipeline/fetch_data.py`
+data/raw/
+__pycache__/
+*.pyc
+outputs/*_log.txt

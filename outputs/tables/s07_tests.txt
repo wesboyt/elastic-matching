@@ -1,0 +1,7 @@
+Simulated vs actual (index 1990 = 100):
+  real rent  (1965-): level corr +0.84, 5-yr change corr +0.52, out-of-sample R2 2000- -8.89 (time-trend benchmark -5.91)
+  real price (1975-): level corr +0.93, 5-yr change corr +0.65, out-of-sample R2 2000- +0.39 (time-trend benchmark -1.17)
+  Direct test, annual % change in actual real rent 1986- on change in homes-per-household (pp) and real income growth: b_rho = +0.03 (NW se 0.29), b_income = +0.50 (0.07), n=40
+  Direct test, annual % change in actual real price 1976- on change in homes-per-household (pp) and real income growth: b_rho = -0.08 (NW se 0.63), b_income = +0.45 (0.42), n=50
+  Shortage effect in 2025 (model vs balanced market, same incomes): rent +12.6%, households without a home +1.7% pts, GS percentile +0.009
+  Money value 2025: renters $96B/yr; all households incl. owners' imputed $276B/yr
