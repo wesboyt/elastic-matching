@@ -1,0 +1,6 @@
+Regret per household: $55,460 at 1.03 homes/household, $56,363 at 1.00, $58,396 at 0.97 (US today), $66,383 at 0.90
+  as % of zero-regret surplus: 16% -> 16% -> 17% -> 19%
+  multiplier, 3% surplus -> 3% shortage: x1.1
+  lowest-income fifth: 45% -> 53%
+  owners' share of gains: 8% -> 9% -> 9%
+Rank regret, random tastes: 2.3 -> 49.7

@@ -33,6 +33,7 @@ STEPS = [
     "sims/s11_landlords.py",
     "data_pipeline/ownership_concentration.py",
     "data_pipeline/ownership_test.py",
+    "sims/s12_regret_cliff.py",
     "whitepaper/build.py",
 ]
 

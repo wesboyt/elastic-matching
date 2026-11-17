@@ -2,178 +2,135 @@
 Working paper · Matching Elasticity Lab · November 2026
 :::
 
-# The Housing Shortage Tax
+# Small Shortages, Large Regret
 
 ::: dek
-The United States is about four million homes short. In a market where households are matched to homes, that shortage hands the gains to people who already own, takes income from people who rent or are buying now, and passes the bill to the next generation. The poorest households are pushed out first.
+Housing is a matching market, and matching markets have a cliff. When homes and households are close to balance, a shortage of just a few percent multiplies how far people land from the home they would have chosen. The United States has just gone over that edge: about four million homes short, 2.7% fewer homes than would-be households. The lowest-income households fall first.
 :::
 
 ::: meta
-Data: Zillow Research, FRED, US Census, Bureau of Economic Analysis and Federal Reserve, 1965 to October 2026. Every number below comes from open code (`python run_all.py`). The technical framework, with proofs, is in [paper/framework.md](https://github.com/wesboyt/elastic-matching/blob/main/paper/framework.md).
+Data: Zillow Research, FRED, US Census, Bureau of Economic Analysis and Federal Reserve, 1965 to October 2026. Every number comes from open code (`python run_all.py`). Proofs and technical detail: [paper/framework.md](https://github.com/wesboyt/elastic-matching/blob/main/paper/framework.md).
 :::
 
 ::: ledger
-3.8M | homes short in 2025 (range 0–4.9M), almost all as households that never formed
-+6.5% | higher home prices (and +2.4% rents) at a shortage of this size, from 241 metros | loss
-~$100B | a year more paid by renters than if rents had tracked incomes since 2000 | loss
+~20× | more regret 3% short than 3% in surplus, when personal fit matters (matching model)
+3.8M | homes short in 2025: 2.7% fewer homes than would-be households
++5.9% | home prices (and +2.2% rents) per 10 homes per 1,000 residents short, 241 metros | loss
++86% | rise in the cheapest homes since 2012 after inflation, vs +55% for the priciest | loss
 $5–8T | of home value that is a claim on future families' income | loss
-1.4× → 2.2× | price of the cheapest homes relative to median income, 2000 to 2026
 :::
 
 ## The argument in brief
 
-1. **We are short of homes.** Counting the households that would exist at normal rates of household formation, the country is about 3.8 million homes short, up from rough balance in 2015.
-2. **A shortage hands the gains to owners.** Housing is a matching market: households on one side, homes on the other. Matching theory says the short side captures the gains. When homes are short, owners collect them, and households pay in money, in worse matches, and, at the bottom, by being shut out.
-3. **It costs real money today.** Metros that built less per new resident saw faster rent and price growth; metros that built more saw slower growth. Renters pay about $100 billion a year more than if rents had tracked incomes.
-4. **The bill goes to future families.** The land part of a home's price is the present value of the rents future occupants will pay. When it rises, today's owners gain exactly what future families will pay, and nothing new is produced to pay it with.
-5. **The bottom rung goes first.** The cheapest homes have risen fastest in every large metro. Flippers and landlords can outbid first-time buyers precisely because homes are short.
-6. **Finance feeds it.** With homes short, mortgage credit and its subsidies flow into land prices instead of more homes. Fixed-rate mortgages shift interest-rate risk to lenders, a large share of them public.
-7. **The fix is supply that keeps up.** When new homes get built whenever prices rise above cost, the land premium disappears under every way of paying for housing. Public homes let at cost reach the households the market leaves out.
+1. **Matching markets have a cliff at balance.** Whoever is on the short side captures the gains. Crossing from a small surplus of homes to a small shortage multiplies regret, the distance between the home people get and the one they would choose.
+2. **The US has just crossed it.** The country went from a surplus of homes in 2005 to rough balance in 2015 to 2.7% short today.
+3. **In housing, the cliff lands on the bottom.** Prices are set mostly by features everyone values the same way: rooms, square footage, location. So a shortage does not spread regret evenly. It concentrates it on the lowest-income households, and the data show the cheapest homes rising fastest in every large metro.
+4. **Small shortages have measurable costs.** Metros that built fewer homes per new resident saw faster price and rent growth.
+5. **The bill goes to future families.** Today's owners hold a claim on what the next generation will pay.
+6. **The cliff works both ways.** A few percent more homes would move the market back off the edge.
 
-Section 8 rates every claim by the strength of its evidence, including the ones that did not hold up.
+## 1. The regret cliff
 
-## 1. We are short of homes
+Each household occupies one home and each home houses one household: a two-sided matching problem, the same mathematics used to match medical residents to hospitals (Gale & Shapley 1962). We measure **regret** as distance from zero regret: how far down your own list your match is, or in money, how much of your best possible gain you do not get.
 
-We compare **homes on the market** (occupied, plus vacant for rent or for sale) with **would-be households**: the households that would exist if adults formed them at 1990 rates, adjusted for an older population. We allow 3.3% vacancy so people can move (the 1965–1999 average).
+**When personal fit dominates, regret has a cliff at balance.** Picture households that care mainly about fit: a home near *their* job, near *their* family. In a market of 200 homes:
 
-The age adjustment matters. Households per adult have stayed flat at about 0.49 since 1990, while the population aged sharply, and people over 65 head their own households far more often than younger adults. Aging alone should have pushed household formation up. It did not, which is what a shortage looks like, though changing social norms (later marriage, more shared living) could explain part of it.
+- With 3% more homes than households, households land on average **1%** of the way down their list. At exact balance, about **2%**. With just **1%** too few homes, about **20%**. At 3% too few, **25%**.
+- That is about **20 times** more regret at 3% short than at 3% in surplus. Beyond that, extra shortage adds regret slowly; the damage is done at the edge.
+- It does not matter who makes the offers. What matters is which side is short (Ashlagi, Kanoria & Leshno 2017).
+- At exact balance, the side that waits for offers is exponentially further from zero regret than the side that makes them: in a 200-person market, regret of 33.8 places versus 4.7 (Pittel 1989).
 
-![US housing shortage 1965-2025, and homes per would-be household](fig/housing_balance.png)
-: **From surplus to shortage.** About 3.5M homes in surplus at the 2005 peak of overbuilding; about 3.8M short today (range 0–4.9M across assumptions). Today's gap is households that never formed, such as young adults at home and doubled-up families, not low vacancy. Jumps near 1980 and 2001 are Census re-benchmarking breaks.
+**In housing, shared features set most of the price, and the cliff lands on the bottom.** Rooms, square footage and location quality are valued the same way by nearly everyone, so households compete for the same homes in order of what they can pay. A shortage then does not push everyone down their list. It decides who is left with the worst options or none:
 
-## 2. Why a shortage hands the gains to owners
+- Across all households, regret barely moves: from **16%** of the best possible gain with 3% more homes to **17%** at today's 2.7% shortage.
+- For the lowest-income fifth it climbs: **45%** to **53%**, and **69%** at 10% short. The share of them with a home of their own falls from 35% to 26%.
+- These use the most tenant-friendly competitive prices, so they are a lower bound. At mid-range prices the lowest-income fifth goes from 62% to 69% to 81%.
 
-Each household occupies one home and each home houses one household: a two-sided matching problem, the same mathematics used to match medical residents to hospitals (Gale & Shapley 1962; Shapley & Shubik 1971). Its central result is that **the short side captures the gains**, and no one has to collude for that to happen.
+![The regret cliff](fig/s12_regret_cliff.png)
+: **Small shortages, large regret.** Left: when personal fit dominates, regret jumps as homes fall just below households. Right: when shared features set prices, average regret barely moves while the lowest-income fifth's regret climbs. Dotted lines: where the US stood in 2015 and stands today.
 
-- **With prices.** Once households outnumber homes, competition among households hands nearly all the gains from trade to owners. In our simulation the owners' share goes from **1–2%** when homes are plentiful to **99–100%** when households outnumber homes by a quarter.
-- **Without prices, in worse matches.** Measured by how far down your own list your match is ("regret"), the long side does far worse. With one extra person on the long side of a 200-person market, its average regret jumps from about 5 to about 35, whoever makes the offers (Ashlagi, Kanoria & Leshno 2017).
-- **In housing, the bottom is shut out.** Housing preferences are largely shared: most people want the same better homes, and owners prefer higher-income tenants. Under shared preferences, a shortage does not make everyone's match slightly worse. It decides **who is left with nothing**, and those are the lowest-ranked households (a model result).
-- **Owners can even profit from emptiness.** In the model, a landlord with 10% of a market earns more by keeping 4 units empty, raising rents 8.7%. That only works when new supply cannot respond.
+## 2. The US has just gone over the edge
 
-![Owners' share of gains as households outnumber homes](fig/s01b_core_collapse.png)
-: **Scarcity hands the market to owners.** The shaded band is every price consistent with competition. Past one household per home, even the most tenant-friendly competitive price gives owners most of the gains.
+We compare **homes on the market** (occupied, plus vacant for rent or for sale) with **would-be households**: the households that would exist if adults formed them at 1990 rates, adjusted for an older population. We allow 3.3% vacancy so people can move.
 
-## 3. What it costs today
+- About **3.5M homes in surplus** at the 2005 peak of overbuilding; rough balance by 2015; about **3.8M short** today (0.973 homes per would-be household; range 0–4.9M across assumptions).
+- Today's gap shows up as households that never formed (young adults at home, doubled-up families), not as low vacancy. Households per adult have stayed at about 0.49 since 1990 even though the population aged, which on its own should have raised it.
 
-**Across metros, building less means paying more.** For 241 metros, we counted the homes each metro's new residents needed and subtracted the homes actually permitted, then compared metros with each other, removing anything that moved all metros together (national incomes, interest rates, inflation).
+![US housing shortage 1965-2025](fig/housing_balance.png)
+: **From surplus to shortage.** Left: homes short (positive) or in surplus (negative), in millions. Right: homes per would-be household; 1 is balance. Jumps near 1980 and 2001 are Census re-benchmarking breaks.
 
-- Each 10 homes per 1,000 residents of shortage goes with **+5.9% home prices** (95% CI 4.7–7.1%) and **+2.2% rents** (CI 1.1–3.4%, 151 metros).
+## 3. Small shortages, measurable costs
+
+For 241 metros we counted the homes each metro's new residents needed and subtracted the homes actually permitted, then compared metros with each other, removing anything that moved all metros together (national incomes, interest rates, inflation).
+
+- Each 10 homes per 1,000 residents of shortage goes with **+5.9% home prices** (95% CI 4.7–7.1%) and **+2.2% rents** (CI 1.1–3.4%, 151 metros). At the national shortage, that is about **+6.5% prices and +2.4% rents**.
 - For metros with the same population growth, 10 more homes permitted per 1,000 residents means **2.0% slower rent growth** and **3.7% slower price growth**.
-- Developers build where they expect rents to rise, which makes building look less effective than it is, so the true effect of building is if anything larger. The results hold under every sample cutoff we tried.
-- At a national-scale shortage, these estimates imply about **+2.4% rents and +6.5% prices**. Our calibrated matching model gives a larger rent effect (+12.6%); people can move away from a local shortage but not a national one, so the national effect likely lies between the two.
+- Developers build where they expect rents to rise, which makes building look less effective than it is, so the true effect is if anything larger. Results hold under every sample cutoff we tried.
 
 ![Metro shortage panel](fig/metro_shortage.png)
 : **Same population growth, more building: slower rent growth.** Left: each dot is a metro, after removing what population growth predicts. Right: the effect of a shortage on prices and rents, with 95% intervals.
 
-**Renters pay about $100 billion a year more than income growth would imply.** Comparing actual rents with rents that had grown with median income since 2000 gives about **$100B a year** ($226B against inflation), or **$1.5T** since 2000. This is the total gap; the shortage is one cause among others. Typical home prices went from **3.0 to 4.0 times** median income. About 40% of that rise is rents outpacing incomes; about 60% is low interest rates turning expected scarcity into higher prices.
+Renters now pay about **$100 billion a year** more than if rents had tracked median incomes since 2000, and typical home prices went from **3.0 to 4.0 times** median income. The shortage is one cause of that gap among others.
 
-![Home values vs counterfactuals, and excess rent](fig/housing_extraction.png)
-: **Home values have pulled away from incomes and building costs.** Measured from 2012, the excess rent paid by sitting tenants disappears; since then the squeeze has landed on movers and new buyers.
+## 4. The bottom rung goes first
 
-## 4. Who pays: future families
+This is the cliff's prediction for housing, and the data match it. **Since the 2012 low, the cheapest third of US homes rose 86%** after inflation, against 68% for the middle third and **55%** for the priciest third. The bottom outpaced the top in **all 100** of the largest metros, by a median of 28 points. The cheapest homes went from **1.4× to 2.2×** median income.
 
-A home's land value is the present value of the scarcity rents future occupants will pay to live there. So when land values rise and the home provides no more housing than before, today's owner gains exactly what future buyers and renters will have to pay. A company that becomes more valuable is backed by output it will create; a land premium is not. The part of the price that pays for construction and upkeep is real; the part above it is a claim on future families' income.
+Older, smaller homes would otherwise be the cheap first step into ownership. Flipping and investor purchases are plausible channels for their disappearance; the data here cannot separate them from other causes.
 
-- **Today's claim is $4.6–8.2 trillion**: **$53k–93k per home**, which the next buyer of each home must pay. People 55 and over hold **$2.9–5.1T** of it; people under 40 hold **$0.6–1.0T**.
-- **Ownership has shifted to older households.** People 55 and over held **57%** of US home equity in 1990 and hold **73%** today; under-40s went from **10% to 7%**. Around 2010, under-40s' combined home equity was negative.
-- **Each generation's gain is the next one's cost.** A household that bought at 30 in 1975 paid **3.2× income** and had gained **$129k** (today's dollars) when it sold at 60. One that bought in 1995 paid **2.9×** and gained **$172k** by 2025. The 2025 buyer who paid that gain is paying **4.1× income**.
-- **For a young family it is a large opportunity cost.** The premium costs a first-time buyer about **$5,500 a year** at today's mortgage rate, **6.3%** of median income, for 30 years. Kept and invested, those payments would be worth **$192k–$277k** after 30 years (3–5% real returns); against income growth, **$251k–$362k**.
-- **It lasts only while each new generation keeps paying.** If supply catches up, the premium shrinks and the last buyers take the loss. Japan's real house prices fell by about half after 1991.
+![Cheapest vs priciest homes since 2012](fig/bottom_rung.png)
+: **The bottom rung in the data.** Left: US home prices by third, after inflation, 2012 = 100. Right: cheapest-third growth minus priciest-third growth since 2012, 100 largest metros.
+
+## 5. Who pays: future families
+
+A home's land value is the present value of the rents future occupants will pay to live there. When land values rise and the home provides no more housing than before, today's owner gains exactly what future buyers and renters will pay, and nothing new is produced to pay it with.
+
+- **Today's claim is $4.6–8.2 trillion**: $53k–93k per home, which the next buyer must pay. People 55 and over hold **$2.9–5.1T** of it; people under 40 hold **$0.6–1.0T**.
+- **Ownership has shifted to older households.** People 55 and over held **57%** of US home equity in 1990 and hold **73%** today; under-40s went from 10% to 7%.
+- **Each generation's gain is the next one's cost.** Buying at 30 in 1995 cost 2.9× income and left a **$172k** gain (today's dollars) at sale in 2025. The 2025 buyer paying that gain is paying **4.1× income**. For a young family the land premium costs about **$5,500 a year**, 6.3% of median income, for 30 years.
+- **Buildings wear out, but US prices hide it.** Official figures put the wear on US housing at **$799B a year**, about $5,750 per home. In Japan an older home sells for less, like an older car; in the US, rising land values cover the wear, so buyers pay near-full price for partly used-up buildings.
 
 ![Who owns home equity, entry prices, and each generation's gain](fig/generations.png)
 : **Who pays.** Left: share of US home equity by age (Federal Reserve). Middle: typical home price relative to median income when a 30-year-old buys. Right: each buying generation's real gain at sale, or so far.
 
-### Hidden wear: the used-car problem
+## 6. How the market's plumbing amplifies it
 
-Buildings wear out whether prices show it or not. Official figures put the wear on US housing at **$799B a year**, about **$5,750 per home**, or **$15.2T** since 2000 in today's dollars. In Japan, an older home sells for less, like an older car. In the US, rising land values cover the wear, so a 30-year-old home can sell near the price of a new one. At 2.4% a year, a building keeps about **half** its value after 30 years unless the owner pays to renovate. A family paying full price for an unrenovated older home pays for wear the seller used up.
+Two features of US housing finance push in the same direction, both measured in the data:
 
-Measured against the worn building, though, the land premium is **$53k per home**, not more than $91k, because building itself got more expensive: the worn building value per home rose from **$152k to $248k** after inflation since 2000, about a third from costlier materials and the rest from bigger homes and renovations. Part of those renovations is flipping of the cheapest homes (section 5), so $53k understates what first-time buyers lose.
+- **Fixed-rate mortgages move interest-rate risk to lenders, a large share of them public.** At the end of 2021 the Federal Reserve held **$2.6T** of mortgage bonds, about a fifth of US mortgage debt; it has since run a **$231B** operating loss, during which it sends nothing to the Treasury. When rates rose 4.05 points, the average rate actually paid rose 0.77 (19% pass-through).
+- **Lock-in thins the market further.** Each point of gap between new and existing mortgage rates cuts new listings by **6.7%** (se 0.7); the gap is now about 3 points. Fewer homes offered means a thinner market, which is the side of the cliff where regret rises.
 
-![Price split into building and land; land premium per home](fig/depreciation.png)
-: **Where the price goes.** Left: a typical home's price split into the building after wear and land. Right: the land premium per home with the building valued as new and after wear. The building value averages over apartments too, so the land share is somewhat overstated in level.
+## 7. The cliff works both ways
 
-## 5. The bottom rung goes first
+The same arithmetic that makes small shortages costly makes small amounts of building powerful.
 
-If worn homes fell in price the way cars do, they would be the cheap first step into ownership. Instead, the cheapest homes have become dearer fastest.
-
-- **Since the 2012 low, the cheapest third of US homes rose 86%** after inflation, against 68% for the middle third and **55%** for the priciest third. The bottom outpaced the top in **all 100** of the largest metros (median gap 28 points), and the cheapest homes went from **1.4× to 2.2×** median income.
-- **Flipping pays only when renovated homes sell above cost, which a shortage creates.** In the model, when renovating costs as much as building new, flippers take **18%** of homes in a balanced market but **45%** in a short one, and the lowest-income fifth with a home falls from 29% to **4%**. A flipped home is a better home; the cost is that families who would have taken a worn home at a low price lose that option.
-- **Landlords work the same way.** In the model, a shortage raises rents, which lets investors outbid first-time buyers short of a down payment; lower-income homeownership falls from 54% to 34% as homes go from balanced to 10% short. Our test of this across 57 metros points the same way but is inconclusive (−0.3 points of homeownership for a typical shortage difference, not distinguishable from zero), so it remains a model result.
-
-![Cheapest vs priciest homes since 2012](fig/bottom_rung.png)
-: **The bottom rung in the data.** Left: US home prices by third, after inflation, 2012 = 100. Right: cheapest-third growth minus priciest-third growth since 2012, 100 largest metros. The data cannot separate flipping from investor buying or other causes.
-
-![Flipping in the matching model](fig/s10_flipping.png)
-: **Flipping in the model.** As renovation gets cheaper relative to building new, flippers take more worn homes, homes under $200k vanish and the lowest-income fifth loses access, faster when homes are short (orange).
-
-## 6. How finance feeds it
-
-**With homes short, credit flows into land.** We ran the same matching market under five ways of paying for housing. With a shortage, what buyers pay existing owners for land each year rises from **1.2%** of income with cash only to **2.4%** with market-rate mortgages and **2.9%** with subsidised fixed-rate loans (a 1-point rate cut, as a scenario). When new homes get built whenever prices exceed cost, it is **zero** under every option, and credit simply lets more households buy. In the data, the land premium paid on homes sold each year comes to about **0.9% of GDP**.
-
-**Public homes let at cost reach those the market misses.** In the model they house **78%** of the lowest-income fifth, against 3–12% under mortgages, with about **$33k** of government money at risk per household against **$229k** of guaranteed loan balances.
-
-![Five ways of paying for housing](fig/s09_financing_regimes.png)
-: **The model.** Each row is a way of paying for housing. Blue: homes short, as today. Green: new homes get built whenever prices rise above cost. The Japan-style case appears only with supply keeping up, because that is how it works there.
-
-**Fixed-rate mortgages move interest-rate risk to lenders, a large share of them public.**
-
-- At the end of 2021 the Federal Reserve held **$2.6T** of mortgage-backed securities, about a fifth of US mortgage debt. In our model, the 2022–23 rate rise cut the value of that year's mortgage stock by about 13%, roughly **$1.55T** across holders, $344B of it at the Fed. The Fed has since run a **$231B** cumulative operating loss, during which it sends nothing to the Treasury.
-- Rate rises barely reached existing borrowers: new mortgage rates rose **4.05 points**, the average rate actually paid rose **0.77** (19% pass-through), adding **$109B a year** in interest against **$567B** if loans were adjustable.
-- Lock-in cuts homes offered for sale: each point of gap between new and existing rates cuts new listings by **6.7%**, and the gap is now about 3 points. In the model this mostly freezes the market rather than raising prices, because locked-in owners also stop buying.
-- We found no clear subsidy through lower mortgage rates: in months of Fed mortgage-bond buying the mortgage spread was only 0.10 points lower, not significant.
-
-![Fixed-rate mortgages in the data](fig/fixed_rate_data.png)
-: **Who held the rate risk.** Left: Fed mortgage-bond buying and the mortgage spread. Middle: the gap between the new rate and the rate owners already pay. Right: Fed mortgage-bond holdings and its cumulative operating loss.
-
-**The US and Japan went opposite ways.** Since 1995, inflation-adjusted house prices rose **88%** in the US and fell **23%** in Japan. That does not show depreciating homes deliver faster growth: across 20 rich countries, faster price growth goes with faster economic growth (most likely because growth pushes prices up), and Japan grew slowly. What the evidence supports is narrower: in a shortage, credit and subsidies are capitalised into land, and young families pay for it.
-
-![US, Japan and other countries; young family's opportunity cost](fig/housing_growth_data.png)
-: **Across countries and for one family.** Left: real house prices since 1970. Middle: house-price growth vs GDP growth, 20 countries (not causal). Right: what a young family's land premium would be worth if invested instead.
-
-## 7. What would fix it, and how to know if it is getting worse
-
-Every part of this paper points to the same lever: **supply that keeps up**. When new homes get built whenever prices rise above building cost, the scarcity premium disappears, flipping and buy-to-rent stop paying, interest rates stop inflating land, and each buyer pays for the building they actually get, as in Japan.
-
-- **Let quantity respond to price.** Wherever homes sell far above the cost of building them, find and remove what stops new supply. Which barriers matter most in each metro is beyond what this paper tests.
-- **Reach the households the market misses.** Public homes let at cost house the lowest-income households with far less public money at risk than subsidised mortgages.
-- **Watch for it getting worse.** Our monitor flags metros where prices outran incomes while homes for sale fell. Syracuse, Hartford, Rochester, New Haven and Bridgeport lead today; Austin and San Antonio, where building boomed, do the opposite.
-
-![Metro regression monitor](fig/monitor_metros.png)
-: **Rationing by price.** Points in the lower right are metros where prices rose faster than incomes while homes offered for sale shrank.
-
-The next tests that would settle the open questions: an instrumented version of the metro test (using supply shifts developers do not choose, such as geography or zoning changes); transaction data on flips and investor purchases; and natural experiments in reform such as Auckland's 2016 upzoning and Minneapolis 2040.
+- **In the matching model**, moving from today's 2.7% shortage to 3% in surplus cuts regret where personal fit matters from **25%** to about **1%**, and cuts the lowest-income fifth's regret from **53%** to **45%** where shared features set prices.
+- **In the metro data**, 10 more homes per 1,000 residents means about 2% slower rent growth and 4% slower price growth.
+- **A few percent is about four million homes.** Wherever homes sell far above what they cost to build, the task is to find and remove what stops new supply. Which barriers matter most in each metro is beyond what this paper tests.
 
 ## 8. What the evidence supports, and what it does not
 
 | Claim | Status | Evidence |
 |---|---|---|
-| The US is short about 4 million homes | Supported | 3.8M central estimate; 0–4.9M across assumptions |
+| Matching markets have a regret cliff at balance | Supported | Established theory (Ashlagi, Kanoria & Leshno 2017; Pittel 1989); reproduced in simulation |
+| In housing, the cliff lands mostly on the lowest-income households | Model only | Regret for the lowest-income fifth 45% → 53% → 69%; average 16% → 17% |
+| The US is short about 4 million homes (2.7%) | Supported | 3.8M central estimate; 0–4.9M across assumptions |
 | Metros with bigger shortages see faster rent and price growth | Supported | +2.2% rents, +5.9% prices per 10 homes per 1,000 residents short |
 | Building more homes slows rent and price growth | Supported | Same population growth, 10 more homes per 1,000: rents −2.0%, prices −3.7% |
-| Size of the shortage's effect on rents nationally | Range | About +2.4% (metro data, a lower bound) to +12.6% (model) |
-| Renters pay about $100B a year more than income growth implies | Supported | Measured gap since 2000; depends on base year; not all caused by the shortage |
-| Land-price gains are claims on future families' income | Supported | Follows from how land is valued; $4.6–8.2T today ($53k–93k per home) |
-| Home equity has shifted to older households | Supported | 55+ share 57% → 73% since 1990; under-40s 10% → 7% |
-| Today's buyers pay far more of their income to get in | Supported | 4.1× income in 2025 vs 2.9× in 1985–1995 |
-| Homes wear out by about $800B a year, and US prices hide it | Supported | BEA: 2.4% of building value a year; $15.2T since 2000 |
-| Valuing buildings after wear makes the land premium larger | Not shown | It is smaller ($53k vs $91k): building costs rose 63% after inflation |
 | The cheapest homes have become dearer fastest | Supported | Bottom third +86% vs top +55% since 2012, in all 100 largest metros |
-| Shortages concentrate harm on the lowest-ranked households | Model only | Shared-preference matching; flipping and landlord models |
-| Shortages push households out of ownership across metros | Not shown | Predicted direction, not distinguishable from zero (57 metros) |
-| With homes short, credit and subsidies flow into land prices | Model only | 1.2% → 2.4% → 2.9% of income; zero when supply keeps up |
-| Public homes at cost reach the lowest incomes with less public money at risk | Model only | 78% of the bottom fifth housed vs 3–12%; $33k vs $229k per household |
-| Fixed-rate mortgages move rate risk to lenders, many of them public | Supported | Fed held $2.6T; model loss about $1.55T; Fed operating loss $231B |
-| Rate rises reach existing borrowers only weakly | Supported | 19% pass-through: +$109B a year vs +$567B if adjustable |
-| Fed mortgage-bond buying lowered mortgage rates | Not found | −0.10 points, not significant |
-| Low interest rates inflate prices mainly where supply is constrained | Mixed | Holds with a land-share proxy, not with the pre-specified index |
-| Depreciating homes (Japan-style) bring faster national growth | Not shown | Across countries, faster price growth goes with faster growth |
+| Land-price gains are claims on future families' income | Supported | Follows from how land is valued; $4.6–8.2T today |
+| Home equity has shifted to older households | Supported | 55+ share 57% → 73% since 1990 |
+| Homes wear out by about $800B a year and US prices hide it | Supported | BEA: 2.4% of building value a year |
+| Fixed-rate mortgages move rate risk to lenders, many of them public | Supported | Fed held $2.6T; Fed operating loss $231B; 19% pass-through |
+| Rate lock-in cuts homes offered for sale | Supported | −6.7% new listings per point of rate gap |
+| The average household faces a regret cliff in housing | Not shown | Where shared features set prices, average regret rises only slightly |
 
-> **What the evidence establishes.** The country is short of homes. Where the shortage is bigger, rents and prices rise faster; where more is built, they rise more slowly. The extra money flows from renters, new buyers and future families to existing owners, and the cheapest homes are disappearing fastest. We do not test what caused the shortage; prior research links land-use rules to high prices in constrained metros (Glaeser & Gyourko 2018), but our data cannot separate rules from other barriers.
+> **What the evidence establishes.** Matching markets turn small shortages into large regret, and the US has just crossed from surplus into shortage. In housing, where shared features set prices, the regret falls hardest on the lowest-income households, and the cheapest homes are disappearing fastest. Where the shortage is bigger, prices and rents rise faster; where more is built, they rise more slowly. We do not test what caused the shortage; prior research links land-use rules to high prices in constrained metros (Glaeser & Gyourko 2018).
 
 ## 9. Method and reproducibility
 
-Everything above is produced by open Python code: an assignment-game solver with exact core bounds, Gale–Shapley matching, metro panels and local projections. `python run_all.py` downloads the public data and regenerates every number and figure. The same framework also covers food (farmers matched to a few meat processors) and healthcare (patients matched to providers); those models are in the repository.
+All results come from open Python code: an exact solver for matching with prices, Gale–Shapley matching without prices, and metro panels with fixed effects. `python run_all.py` downloads the public data and regenerates every number and figure.
 
 ::: refs
-Ashlagi, Kanoria & Leshno (2017) *JPE*. Demange, Gale & Sotomayor (1986) *JPE*. Gale & Shapley (1962) *AMM*. Glaeser & Gyourko (2018) *JEP*. Greaney (2020) working paper. Hsieh & Moretti (2019) *AEJ: Macro*. Leonard (1983) *JPE*. Pittel (1989) *SIAM J. Discrete Math.* Saiz (2010) *QJE*. Shapley & Shubik (1971) *IJGT*.
+Ashlagi, Kanoria & Leshno (2017) *JPE*. Demange, Gale & Sotomayor (1986) *JPE*. Gale & Shapley (1962) *AMM*. Glaeser & Gyourko (2018) *JEP*. Pittel (1989) *SIAM J. Discrete Math.* Saiz (2010) *QJE*. Shapley & Shubik (1971) *IJGT*.
 :::
