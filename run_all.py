@@ -30,6 +30,8 @@ STEPS = [
     "data_pipeline/depreciation.py",
     "data_pipeline/bottom_rung.py",
     "sims/s10_flipping.py",
+    "sims/s11_landlords.py",
+    "data_pipeline/ownership_concentration.py",
 ]
 
 if __name__ == "__main__":

@@ -204,6 +204,22 @@ If worn homes fell in price the way cars do, they would be the cheap first step 
 
 *Flipping in the model. As renovation gets cheaper relative to building new, flippers take more worn homes, homes under $200k vanish, and the lowest-income fifth loses access. Orange: a market short of homes; blue: balanced.*
 
+### Landlords: the same squeeze, collected every year
+
+A landlord values a home by the rent it will earn. In a shortage, renters bid rents up, so landlords can pay more for homes and outbid first-time buyers, especially those short of a down payment. It is the same mechanism as flipping, with a different exit: the home stays a rental, and the scarcity premium is collected as rent every year instead of once at resale.
+
+- **In the model, the shortage hands entry homes to landlords.** With investors expecting a 5% return, their share of homes rises from **24%** in a balanced market to **28%** when homes are 10% short, and homeownership in the lower-income half falls from **54% to 34%**. With cheaper capital (a 4% return), investors' share goes from 30% to **40%** and lower-income ownership from 42% to **15%**. Rent above the landlord's costs rises with the shortage, from about $260 to $990 a year per rental at 5%, and to about $2,700 at 4%.
+- **Down payments matter even without a shortage.** With homes plentiful, investors still buy 15–30% of homes in the model, because many households lack 10% down and investors outbid them. The shortage widens that gap.
+- **The data show real estate shifting toward the wealthiest.** The top 1% by wealth held **9.4%** of US household real estate in 1989 and **13.4%** today; the bottom half went from **11.8% to 9.7%**. These figures include homes people live in, second homes and rentals together, so they fit the landlord story without proving it.
+
+![Landlords](whitepaper/fig/s11_landlords.png)
+
+*Landlords in the model. As homes get shorter (left to right), investors buy more of them, the lower-income half loses ownership, and rent above landlords' costs rises; all three effects are stronger when investors' capital is cheaper.*
+
+![Who holds the real estate](whitepaper/fig/ownership_concentration.png)
+
+*Who holds the real estate. Left: each wealth group's share of US household real estate, relative to 1989 (Federal Reserve Distributional Financial Accounts). Right: the homeownership rate; the 2020 spike is a known pandemic survey artifact.*
+
 ## 9. What the evidence supports, and what it does not yet
 
 A whitepaper that argues for change has to be clear about the strength of each claim. This is our own assessment:
@@ -217,6 +233,8 @@ A whitepaper that argues for change has to be clear about the strength of each c
 | Valuing buildings after wear makes the land premium larger | **Not shown** | It is smaller ($53k vs $91k per home): replacement costs rose 63% after inflation since 2000 |
 | The cheapest homes have become dearer fastest | **Supported** | Bottom third +86% vs top third +55% after inflation since 2012; all 100 largest metros; 1.4× → 2.2× income |
 | Flipping removes the bottom rung | **Model only** | Strong when renovation is cheap relative to the premium on renovated homes, and when homes are short; flipping itself not measured in data |
+| Shortages and cheap capital let landlords outbid first-time buyers | **Model only** | Investor share 24% → 28% (30% → 40% with cheap capital) as homes go 10% short; lower-income ownership 54% → 34% |
+| Real estate has shifted toward the wealthiest households | **Supported** | Top 1% share 9.4% → 13.4%, bottom half 11.8% → 9.7% since 1989; rentals not separated |
 | The US is short about 4 million homes relative to would-be households | **Supported** | 3.8M central estimate; 0–4.9M across assumptions; consistent with published estimates |
 | Metros with bigger shortages see faster rent and price growth | **Supported** | Metro panel: +2.2% rents, +5.9% prices per 10 homes per 1,000 residents short; robust to the boundary filter |
 | Building more homes slows rent and price growth | **Supported** | Same population growth, 10 more homes per 1,000 residents: rents −2.0%, prices −3.7%. Bias runs against the finding |
@@ -299,6 +317,8 @@ year.
 | `data_pipeline/depreciation.py` | Hidden wear: BEA depreciation of housing, a typical home's price split into worn building vs land, land premium against a worn building |
 | `data_pipeline/bottom_rung.py` | Cheapest vs priciest thirds of homes (Zillow tiers): US and 100 largest metros |
 | `sims/s10_flipping.py` | Flippers in the matching market: when flipping pays and what it does to the cheapest homes |
+| `sims/s11_landlords.py` | Landlords vs first-time buyers in the matching market, across shortage levels and investor cost of capital |
+| `data_pipeline/ownership_concentration.py` | Household real estate by wealth group (Fed DFA) and the homeownership rate |
 | `data_pipeline/metro_shortage.py` | Metro panel: homes permitted vs homes new residents needed, against Zillow rents and prices (fixed effects, robustness to boundary changes) |
 | `whitepaper/` | Styled HTML version of the paper above, with its figures |
 | `outputs/` | Figures (PNG) and tables (CSV) |

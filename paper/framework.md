@@ -532,6 +532,30 @@ points). The bottom third went from 1.43× median income (2000) to 2.15×
   Below parity, nearly every worn unit is flipped and the bottom rung
   disappears.
 
+### 5.11 Landlords (`sims/s11_landlords.py`, `data_pipeline/ownership_concentration.py`)
+
+**Model.** Same housing stock as s10. Households need 10% down, with
+savings = 0.5 × income × lognormal(0, 0.8). The model runs in three steps:
+
+1. *Rents:* rents are the buyer-optimal prices of a rental market where
+   all households compete for all homes, with the landlord's minimum rent =
+   value × (yield + 1.5%).
+2. *Ownership:* an auction between household bids (capped by the down
+   payment) and investor bids (75% of rent / yield).
+3. *Renters:* households that did not buy compete for investor-owned homes.
+
+**Results.**
+
+* *At a 5% investor yield:* investor share is 24% at balance and 28% at
+  0.90 homes per household, and lower-half ownership falls 54% → 34%.
+* *At a 4% yield:* investor share goes 30% → 40%, and lower-half ownership
+  falls 42% → 15%.
+* *Scarcity rent per rental:* $0.3k → $1.0k (5%) and $0.3k → $2.7k (4%).
+
+**Data (Fed DFA).** The top 1% share of household real estate rose from
+9.4% (1989) to 13.4%, and the bottom 50% share fell from 11.8% to 9.7%.
+Owner-occupied and rental holdings are not separated.
+
 ## 6. Experiments to detect regression
 
 A market is **regressing** if, over time, (i) $\hat\varepsilon_s$ falls,
