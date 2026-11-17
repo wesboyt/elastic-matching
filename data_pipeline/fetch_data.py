@@ -97,6 +97,11 @@ CENSUS_FILES = {
        for y in (2024, 2025)},
     "census_cbsa_pop_2025.csv": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/metro/totals/cbsa-est2025-alldata.csv",
 }
+# Census HVS homeownership rates for the 75 largest metros (Excel files)
+HVS_FILES = {
+    "hvs_msa_hmr_2005_2014.xlsx": "https://www.census.gov/housing/hvs/data/rates/tab6a_msa_05_2014_hmr.xlsx",
+    "hvs_msa_hmr_2015_2025.xlsx": "https://www.census.gov/housing/hvs/data/rates/tab6b_msa_15_25_hmr.xlsx",
+}
 
 
 def get(url: str, dest: Path, refresh: bool) -> bool:
@@ -114,6 +119,22 @@ def get(url: str, dest: Path, refresh: bool) -> bool:
     except Exception as e:  # noqa: BLE001
         print(f"  FAIL {dest.name}: {e}")
         return False
+
+
+def get_binary(url: str, dest: Path, refresh: bool) -> None:
+    if dest.exists() and not refresh:
+        print(f"  have {dest.name}")
+        return
+    try:
+        r = requests.get(url, timeout=(15, 120))
+        r.raise_for_status()
+        if r.content[:2] != b"PK":
+            raise ValueError("not an Excel file")
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_bytes(r.content)
+        print(f"  got  {dest.name} ({len(r.content) / 1e6:.2f} MB)")
+    except Exception as e:  # noqa: BLE001
+        print(f"  FAIL {dest.name}: {e}")
 
 
 def get_dfa(refresh: bool) -> None:
@@ -147,6 +168,9 @@ def main(refresh: bool = False):
         get(FRED + sid, RAW / f"fred_{sid}.csv", refresh)
     print("[fetch] Fed distributional accounts")
     get_dfa(refresh)
+    print("[fetch] Census HVS metro homeownership")
+    for name, url in HVS_FILES.items():
+        get_binary(url, RAW / "hvs" / name, refresh)
     print("[fetch] Census")
     for name, url in CENSUS_FILES.items():
         get(url, RAW / name, refresh)

@@ -32,6 +32,8 @@ STEPS = [
     "sims/s10_flipping.py",
     "sims/s11_landlords.py",
     "data_pipeline/ownership_concentration.py",
+    "data_pipeline/ownership_test.py",
+    "whitepaper/build.py",
 ]
 
 if __name__ == "__main__":

@@ -129,18 +129,35 @@ def main():
     print(txt)
     (TAB / "s09_summary.txt").write_text(txt + "\n")
 
-    fig, axes = plt.subplots(1, 3, figsize=(13.5, 4.2), sharey=True)
-    lab = [f"{r} ({s.lower()})" if r != "Depreciating" else "Depreciating (elastic)" for r, s in zip(df.regime, df.supply)]
-    cols = [C[0] if s == "Short" else C[2] for s in df.supply]
-    specs = [("land_absorbs_pct_income", 1, "Paid to owners for land each year (% of income)"),
-             ("bottom_fifth_access", 100, "Lowest-income fifth housed (%)"),
-             ("public_at_risk_per_hh", 1e-3, "Public money at risk ($k per household)")]
-    for ax, (col, k, title) in zip(axes, specs):
-        ax.barh(range(len(df)), df[col] * k, color=cols, height=0.65)
-        ax.set_title(title)
+    # one row per way of paying; two bars per row: homes short vs supply keeps up
+    names = {"Cash only": "Cash only\n(no mortgages)", "Market mortgage": "Market-rate\nmortgage",
+             "Subsidised fixed": "Subsidised\nfixed-rate mortgage", "Public at cost": "Public homes\nlet at cost",
+             "Depreciating": "Japan-style\n(homes depreciate)"}
+    specs = [("land_absorbs_pct_income", 1, "Paid to existing owners for land\n(% of all income, per year)", "{:.1f}%"),
+             ("bottom_fifth_access", 100, "Lowest-income fifth\nwith a home (%)", "{:.0f}%"),
+             ("public_at_risk_per_hh", 1e-3, "Government money at risk\n($ thousands per household)", "${:.0f}k")]
+    fig, axes = plt.subplots(1, 3, figsize=(13.5, 5.2), sharey=True)
+    ypos = np.arange(len(REGIMES))
+    h = 0.36
+    for ax, (col, k, title, fmt) in zip(axes, specs):
+        vmax = (df[col] * k).max()
+        for j, (sup, color, off, lab) in enumerate((("Short", C[0], -h / 2, "Homes short (like today)"),
+                                                     ("Elastic", C[2], h / 2, "Supply keeps up with demand"))):
+            for i, reg in enumerate(REGIMES):
+                row = df[(df.regime == reg) & (df.supply == sup)]
+                if row.empty:
+                    ax.text(0.01 * vmax, i + off, "n/a", va="center", fontsize=7.5, color=INK2)
+                    continue
+                v = float(row[col].iloc[0] * k)
+                ax.barh(i + off, v, height=h * 0.92, color=color, label=lab if i == 0 else None)
+                ax.text(v + 0.02 * vmax, i + off, fmt.format(max(v, 0)), va="center", fontsize=7.5, color="#0b0b0b")
+        ax.set_xlim(0, vmax * 1.25)
+        ax.set_title(title, fontsize=10.5)
+        ax.grid(axis="y", visible=False)
         ax.axvline(0, color=INK2, lw=0.8)
-    axes[0].set_yticks(range(len(df)), lab, fontsize=8)
+    axes[0].set_yticks(ypos, [names[r] for r in REGIMES], fontsize=9)
     axes[0].invert_yaxis()
+    axes[0].legend(loc="lower right", fontsize=8.5, frameon=True, facecolor="#fcfcfb", edgecolor="#e4e3df")
     save(fig, "s09_financing_regimes")
 
 

@@ -1,0 +1,4 @@
+n = 57 metros matched; shortage 2014-24: median -9.3 per 1,000 (sd 12.2)
+change in homeownership on shortage: b = -0.024 pp per home/1,000 (HC1 se 0.046); starting level b = -0.164 (0.110)
+   without the starting-level control: b = -0.026 (0.045)
+   a 1-sd larger shortage (12 homes per 1,000) -> -0.30 pp homeownership

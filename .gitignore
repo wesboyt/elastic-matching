@@ -3,3 +3,4 @@ data/raw/
 __pycache__/
 *.pyc
 outputs/*_log.txt
+.claude/
