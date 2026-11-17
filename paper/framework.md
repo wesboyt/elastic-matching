@@ -503,6 +503,35 @@ $3.9–5.1T, under-40s $0.8–1.0T.
 
 Realised gains are paid by the buyer at the time of sale.
 
+### 5.10 Hidden wear and the bottom rung (`data_pipeline/depreciation.py`, `data_pipeline/bottom_rung.py`, `sims/s10_flipping.py`)
+
+**Wear (BEA).** Private residential depreciation was $799B in 2024 (2.4%
+of the current-cost net stock of $34.4T), or $15.2T in total since 2000 in
+today's dollars.
+
+* *Worn building per unit* (net stock / housing units, current cost) rose
+  from $152k to $248k after inflation since 2000. About a third of that is
+  real materials prices (+33%); the rest is more building per home (+22%),
+  including renovations and flips.
+* *Land premium against a worn building:* $53k per home ($4.6T) vs $91k
+  against a new building.
+
+**Tiers (Zillow).** Real growth since 2012: bottom third +86%, top third
++55%. The bottom outpaced the top in all 100 largest metros (median +28 log
+points). The bottom third went from 1.43× median income (2000) to 2.15×
+(2026).
+
+**Flipping model.** Unit quality is $(1-0.024)^{age}$, with ages uniform on
+0–60.
+
+* *Rule:* flippers renovate to q = 0.95 at a cost multiple of new
+  construction, keep a 10% margin, and buy whenever the resale price
+  (read off the no-flip market) beats the unit's market price.
+* *Results:* at cost parity, 18% of homes are flipped in a balanced market
+  vs 45% in a short one (0.85), and the bottom fifth housed falls 29% → 4%.
+  Below parity, nearly every worn unit is flipped and the bottom rung
+  disappears.
+
 ## 6. Experiments to detect regression
 
 A market is **regressing** if, over time, (i) $\hat\varepsilon_s$ falls,

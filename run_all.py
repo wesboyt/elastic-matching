@@ -27,6 +27,9 @@ STEPS = [
     "sims/s09_financing_regimes.py",
     "data_pipeline/housing_growth_data.py",
     "data_pipeline/generations.py",
+    "data_pipeline/depreciation.py",
+    "data_pipeline/bottom_rung.py",
+    "sims/s10_flipping.py",
 ]
 
 if __name__ == "__main__":

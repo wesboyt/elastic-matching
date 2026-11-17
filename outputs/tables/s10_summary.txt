@@ -1,0 +1,7 @@
+  market                       case  flipped_pct   cheapest  under_200k  median_price  housed  bottom_fifth_housed
+Balanced                No flipping        0.000  89122.460      139.25    162128.406   0.869                0.344
+Balanced                   Flipping        0.000  89122.460      139.25    162128.406   0.869                0.344
+Balanced Flipping, cheap renovation       80.729 205649.937        0.50    256125.813   0.752                0.000
+   Short                No flipping        0.000  94042.500      132.25    164673.470   0.842                0.208
+   Short                   Flipping        2.083  95475.713      129.75    164770.507   0.840                0.198
+   Short Flipping, cheap renovation       80.882 214065.136        0.00    270213.914   0.715                0.000

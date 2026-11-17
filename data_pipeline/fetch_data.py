@@ -21,6 +21,9 @@ ZILLOW_FILES = {
     "zori_metro.csv": f"{ZILLOW}/zori/Metro_zori_uc_sfrcondomfr_sm_month.csv",
     # for-sale inventory
     "inventory_metro.csv": f"{ZILLOW}/invt_fs/Metro_invt_fs_uc_sfrcondo_sm_month.csv",
+    # bottom and top thirds of home values (the "bottom rung" vs the top)
+    "zhvi_bottom_metro.csv": f"{ZILLOW}/zhvi/Metro_zhvi_uc_sfrcondo_tier_0.0_0.33_sm_sa_month.csv",
+    "zhvi_top_metro.csv": f"{ZILLOW}/zhvi/Metro_zhvi_uc_sfrcondo_tier_0.67_1.0_sm_sa_month.csv",
 }
 
 FRED = "https://fred.stlouisfed.org/graph/fredgraph.csv?id="
@@ -72,6 +75,9 @@ FRED_SERIES = {
     "A008RE1Q156NBEA": "Nonresidential fixed investment, share of GDP (%)",
     "A011RE1Q156NBEA": "Residential fixed investment, share of GDP (%)",
     "EXHOSLUSM495S": "Existing home sales (SAAR), last 13 months only",
+    "K1R53101ES000": "BEA current-cost net stock, private residential fixed assets ($M), annual",
+    "M1R53101ES000": "BEA current-cost depreciation, private residential fixed assets ($M), annual",
+    "HOOREVLMHMV": "Households: owner-occupied real estate at market value ($M), quarterly",
 }
 
 # cross-country: BIS real residential property prices and World Bank real GDP per capita

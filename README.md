@@ -9,7 +9,7 @@ Working paper, November 2026. Data: Zillow Research, FRED and US Census (househo
 | **3.8M** | homes short in 2025 (range 0–4.9M), almost all as households that never formed |
 | **+6.5% prices, +2.4% rents** | at a shortage of this size, estimated from 241 metros |
 | **~$100B a year** | more paid by renters than if rents had tracked incomes since 2000 |
-| **$6–8T** | of home value above what incomes or building costs justify |
+| **$5–8T** | of home value above what incomes or worn buildings justify |
 | **3.0 → 4.0** | typical home price as a multiple of median income, 2000 to 2026 |
 
 ## 0. Summary
@@ -142,7 +142,7 @@ A mortgage lets a household bid for a home with income it has not earned yet. We
 
 - **Credit inflates prices only when homes are short.** With today's shortage, what buyers pay existing owners for land each year goes from **1.2%** of income with cash only to **2.4%** with market mortgages and **2.9%** with subsidised fixed-rate loans. When supply responds to price, it is **zero** under every option: credit then lets more households buy (55% → 78%) without raising prices.
 - **At-cost public housing reaches the households that mortgages miss.** It houses **78%** of the lowest-income fifth, against 3% with market mortgages and 12% with subsidised ones. It puts about **$33k** of public money at risk per household, against **$229k** of government-guaranteed loan balances in the subsidised mortgage system.
-- **Depreciating homes remove the land payment altogether.** In the Japan-like market, homes are consumption goods that sell at building cost and lose value with age. No one pays a premium to existing owners for land.
+- **Depreciation happens either way; Japan's prices simply show it.** Buildings wear out like cars. In the Japan-like market an older home sells for less, so each buyer pays for the building they actually get, and no one pays a premium to existing owners for land. Section 8 shows how US prices hide the same wear.
 
 ![Financing regimes](whitepaper/fig/s09_financing_regimes.png)
 
@@ -166,7 +166,7 @@ A home's land value is the present value of the scarcity rents that future occup
 
 The part of house prices above what building costs justify is therefore not new wealth. It is a claim on the incomes of future families, and it creates nothing that will help them pay it. The part of the price that pays for construction and upkeep is real.
 
-- **Today's claim on future families is $6.2–8.2T.** That is the land premium across owner-occupied homes, measured against building costs and against income growth since 2000: **$71k–93k per home**, which the next buyer of each home must pay. People 55 and over hold **$3.9–5.1T** of it; people under 40 hold **$0.8–1.0T**.
+- **Today's claim on future families is $4.6–8.2T.** That is the land premium across owner-occupied homes since 2000: **$53k–93k per home**, which the next buyer of each home must pay. The low end values the building after wear (official BEA figures); the high end measures prices against income growth. People 55 and over hold **$2.9–5.1T** of it; people under 40 hold **$0.6–1.0T**.
 - **Ownership has shifted to older households.** People 55 and over held **57%** of US home equity in 1990 and hold **73%** today; under-40s went from **10% to 7%**. Under-40s own $6.1T of real estate carrying $3.6T of mortgages; people 55 and over own $31.1T carrying $4.9T. Around 2010, under-40s' combined home equity was negative.
 - **Each generation's gain is the next one's cost.** A household that bought a typical home at 30 in 1975 paid **3.2× income** and had gained **$129k** (in today's dollars, after inflation) when it sold at 60 in 2005. One that bought in 1995 paid **2.9×** and gained **$172k** by 2025. The 2025 buyer who paid that gain is paying **4.1× income**, and is already 3% down.
 - **It only works while the next generation keeps paying.** The claim holds its value only if each new generation pays the premium again. If supply catches up, the premium shrinks, and the last households to buy take the loss. Japan's real house prices fell by about half after 1991.
@@ -177,15 +177,46 @@ The part of house prices above what building costs justify is therefore not new 
 
 Not all past gains are transfers: some reflect better homes and real costs, which is why the claim above counts only value beyond building costs. That the land premium is a transfer from future families follows from the arithmetic. Whether to call it theft is a judgment this paper leaves to the reader.
 
+### Hidden wear: the used-car problem
+
+Buildings wear out whether or not prices show it. Official figures (BEA) put the wear on US housing at **$799B a year**, about **2.4%** of the buildings' value, or roughly **$5,750 per home**. Since 2000 it adds up to **$15.2T** in today's dollars. Someone pays for that wear: the owner through upkeep and renovation, or the next buyer through the price.
+
+- **US prices hide it.** In Japan an older home sells for less, like an older car. In the US, rising land values cover the wear, so a 30-year-old home can sell near the price of a new one. At 2.4% a year, a building keeps about **half** its value after 30 years unless the owner pays to renovate: about **$121k** of wear on today's typical building. A family that buys an unrenovated older home at full market price is paying for wear the seller used up, on top of the land premium.
+- **But buildings themselves got more expensive.** BEA values each home's worn building at what it would cost to build today. That figure rose from **$152k to $248k per home** after inflation since 2000: about a third from construction materials costing more, and the rest from bigger new homes and renovations owners paid for. So when the building is valued after wear, the land premium is **$53k per home**, smaller than the $91k measured against a new building. Both numbers are reported. Part of that "more building per home" is renovation and flipping of the cheapest homes, which removes the cheap first rung rather than adding homes (next), so the $53k figure understates what first-time buyers lose.
+
+![Hidden wear](whitepaper/fig/depreciation.png)
+
+*Where the price goes. Left: a typical US home's price split into the building after wear (BEA net stock per home) and land and scarcity. Right: the land premium per home since 2000, with the building valued as new and valued after wear. BEA's per-home building value averages over apartments too, which are smaller than a typical owner-occupied home, so the land share is somewhat overstated in level; the change since 2000 is more reliable.*
+
+### The bottom rung: flipping and the cheapest homes
+
+If worn homes fell in price the way cars do, they would be the cheap first step into ownership. Flipping turns them into renovated homes sold near new prices. The data show the bottom rung getting harder to reach fastest; the model shows how flipping does it.
+
+- **The cheapest homes rose fastest.** Since the 2012 low, the cheapest third of US homes rose **86%** after inflation, against 68% for the middle third and **55%** for the priciest third. The cheapest homes went from **1.4× median income** in 2000 to **2.2×** today. The bottom outpaced the top in **all 100** of the largest metros (median gap 28 points). The data cannot say how much of this is flipping, investor buying or a shortage concentrated at the low end.
+- **In the model, flipping pays only when renovated homes sell above cost.** When renovating costs as much as building new, flippers take **18%** of homes in a balanced market but **45%** in a short one, and the lowest-income fifth housed falls from 29% to **4%**. Once renovation is cheaper than the price premium it earns, flippers take almost every worn home: homes under $200k disappear and the lowest-income fifth is shut out entirely. A shortage is what makes the premium, and the premium is what makes flipping pay.
+- **Renovation adds real value, but it removes a choice.** A flipped home is a better home. The cost is that families who would have taken a worn home at a low price no longer have that option.
+
+![Bottom rung](whitepaper/fig/bottom_rung.png)
+
+*The bottom rung in the data. Left: US home prices by third, after inflation, 2012 = 100 (Zillow). Right: cheapest-third growth minus priciest-third growth since 2012, 100 largest metros.*
+
+![Flipping](whitepaper/fig/s10_flipping.png)
+
+*Flipping in the model. As renovation gets cheaper relative to building new, flippers take more worn homes, homes under $200k vanish, and the lowest-income fifth loses access. Orange: a market short of homes; blue: balanced.*
+
 ## 9. What the evidence supports, and what it does not yet
 
 A whitepaper that argues for change has to be clear about the strength of each claim. This is our own assessment:
 
 | Claim | Status | Evidence |
 |---|---|---|
-| Land-price gains are claims on future families' income | **Supported** | Follows from how land is valued; today's claim is $6.2–8.2T ($71k–93k per home) |
+| Land-price gains are claims on future families' income | **Supported** | Follows from how land is valued; today's claim is $4.6–8.2T ($53k–93k per home) |
 | Home equity has shifted to older households | **Supported** | 55+ share 57% → 73% since 1990; under-40s 10% → 7% |
 | Today's buyers pay far more of their income to get in | **Supported** | 4.1× income in 2025 vs 2.9× in 1985–1995; earlier buyers' gains were paid by later ones |
+| Homes wear out by about $800B a year, and US prices hide it | **Supported** | BEA: 2.4% of building value a year, $15.2T since 2000; prices of older homes do not fall with it |
+| Valuing buildings after wear makes the land premium larger | **Not shown** | It is smaller ($53k vs $91k per home): replacement costs rose 63% after inflation since 2000 |
+| The cheapest homes have become dearer fastest | **Supported** | Bottom third +86% vs top third +55% after inflation since 2012; all 100 largest metros; 1.4× → 2.2× income |
+| Flipping removes the bottom rung | **Model only** | Strong when renovation is cheap relative to the premium on renovated homes, and when homes are short; flipping itself not measured in data |
 | The US is short about 4 million homes relative to would-be households | **Supported** | 3.8M central estimate; 0–4.9M across assumptions; consistent with published estimates |
 | Metros with bigger shortages see faster rent and price growth | **Supported** | Metro panel: +2.2% rents, +5.9% prices per 10 homes per 1,000 residents short; robust to the boundary filter |
 | Building more homes slows rent and price growth | **Supported** | Same population growth, 10 more homes per 1,000 residents: rents −2.0%, prices −3.7%. Bias runs against the finding |
@@ -265,6 +296,9 @@ year.
 | `sims/s09_financing_regimes.py` | Five ways to pay for housing (cash, mortgages, subsidised fixed, public at cost, depreciating) in the matching market |
 | `data_pipeline/housing_growth_data.py` | US vs Japan and other countries' house prices, land premium in the data, young families' opportunity cost, cross-country growth check |
 | `data_pipeline/generations.py` | Who pays: home equity by age (Fed DFA), today's land premium as a claim on future families, each buying generation's price and gain since 1975 |
+| `data_pipeline/depreciation.py` | Hidden wear: BEA depreciation of housing, a typical home's price split into worn building vs land, land premium against a worn building |
+| `data_pipeline/bottom_rung.py` | Cheapest vs priciest thirds of homes (Zillow tiers): US and 100 largest metros |
+| `sims/s10_flipping.py` | Flippers in the matching market: when flipping pays and what it does to the cheapest homes |
 | `data_pipeline/metro_shortage.py` | Metro panel: homes permitted vs homes new residents needed, against Zillow rents and prices (fixed effects, robustness to boundary changes) |
 | `whitepaper/` | Styled HTML version of the paper above, with its figures |
 | `outputs/` | Figures (PNG) and tables (CSV) |

@@ -1,0 +1,5 @@
+DEP1 BEA: residential buildings worth $34.4T after wear (2024); wear $799B that year (2.4% of the stock). Cumulative wear 2000-2024: $15.2T in today's dollars.
+DEP2 typical home: price $226,917 -> $378,092 (today's $, 2000->2024); worn building per home $152,057 -> $247,558; land and scarcity $74,859 -> $130,534 (share 33% -> 35%)
+   wear per home in 2024: $5,753 a year
+DEP3 land premium vs a worn building: $52,696 per home (vs $91,529 when the building is valued as new); x 86.4M owner-occupied homes = $4.6T
+DEP4 at 2.4%/yr wear, a building keeps 48% of its value after 30 years without renovation: on today's worn building of $234,314, about $121,360 of wear over a 30-year ownership

@@ -1,0 +1,4 @@
+BR1 US real change 2012->2026: bottom third +86%, middle +68%, top third +55%; 2000->2026: bottom +80%, top +54%
+    bottom/top price ratio: 0.24 (2000), 0.23 (2012), 0.28 (2026)
+BR2 bottom-third home / median income: 1.43 (2000), 1.52 (2012), 2.15 (2026)
+BR3 100 largest metros: bottom outpaced top since 2012 in 100% (median gap +28 log pts); since 2000 in 100% (median +30)
