@@ -1,0 +1,13 @@
+A. Yearly price of the free refinancing option (fair coupon, prepayable minus no-option):
+   start short rate 0.25%: prepayable 1.83%, no option 1.79% -> option 0.04pp/yr
+   start short rate 2.00%: prepayable 2.84%, no option 2.75% -> option 0.09pp/yr
+   start short rate 3.50%: prepayable 3.80%, no option 3.63% -> option 0.16pp/yr
+   start short rate 5.00%: prepayable 4.82%, no option 4.50% -> option 0.32pp/yr
+B. +4pp over 18 months from a 2021-like start (loan made at 1.77%): value change to holder: Prepayable fixed (US) -15.1%, Fixed, no refinancing option -15.3%, Adjustable rate +0.0%, 2021 stock at its average rate -13.1%
+   end-2021 holders, valuing the stock at its 3.33% average rate ($B): Federal Reserve 344, Commercial banks 387, All other holders (incl. GSEs, funds, foreign) 823; total 1,553 (if all were new 1.77% loans: 1,784)
+C. Lock-in (lambda=0.067):
+   gap 0pp: homes/buyer 1.000, price premium 19.1%, no home (with money) 13.2%, buyer regret pct 0.288
+   gap 1pp: homes/buyer 0.993, price premium 19.2%, no home (with money) 13.4%, buyer regret pct 0.296
+   gap 2pp: homes/buyer 0.989, price premium 19.5%, no home (with money) 13.9%, buyer regret pct 0.296
+   gap 3pp: homes/buyer 0.981, price premium 19.5%, no home (with money) 14.3%, buyer regret pct 0.297
+   gap 4pp: homes/buyer 0.972, price premium 19.3%, no home (with money) 14.2%, buyer regret pct 0.301

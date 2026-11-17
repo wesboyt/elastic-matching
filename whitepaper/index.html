@@ -120,7 +120,7 @@ code { font-size: 15px; }
   <div role="listitem"><span class="v">3.0 → 4.0</span><span class="l">typical home price as a multiple of median income, 2000 to 2026</span></div>
 </div>
 
-<p>Our thesis is that this is a <strong>congestion problem that rewards holding over producing</strong>. Most of the dollars involved are not lost to the economy outright. They are <strong>moved</strong>: from people who rent or are buying now, to people who already own and to the lenders who finance the gap. That money is no longer available for anything else these households would have spent or invested it on. Section 6 separates the parts of this claim our evidence establishes from the parts it does not yet establish.</p>
+<p>Our thesis is that this is a <strong>congestion problem that rewards holding over producing</strong>. Most of the dollars involved are not lost to the economy outright. They are <strong>moved</strong>: from people who rent or are buying now, and from <strong>future families</strong>, to people who already own and to the lenders who finance the gap. Section 8 shows why the rise in land values is, by construction, a claim on what future families will pay. That money is no longer available for anything else these households would have spent or invested it on. Section 9 separates the parts of this claim our evidence establishes from the parts it does not yet establish.</p>
 
 <h2><span class="num">1</span>The model: housing as a matching market</h2>
 <p>Each household occupies one home; each home houses one household. That is a two-sided assignment problem, the same mathematics used to match medical residents to hospitals and students to schools (Gale &amp; Shapley 1962; Shapley &amp; Shubik 1971). We use two versions:</p>
@@ -214,12 +214,72 @@ code { font-size: 15px; }
 <p>These are model results; we have not measured withholding in real ownership data.</p>
 <p>The same matching mathematics applies outside housing, again as model results with illustrative parameters. In a model market with four meat processors, farm-gate prices settle about <strong>20%</strong> below value, exactly as monopsony theory predicts. In a model where patients can see only one price, a $5,000 procedure sells for about <strong>$36,000</strong> however many providers exist. Price transparency only helps there when there is spare capacity.</p>
 
-<h2><span class="num">6</span>What the evidence supports, and what it does not yet</h2>
+<h2><span class="num">6</span>Fixed-rate mortgages: who carries the risk</h2>
+<p>Almost every US mortgage is a 30-year loan at a fixed rate that the borrower can refinance for free whenever rates fall. That design moves interest-rate risk off the household and onto whoever holds the loan. A large share of the holders are public institutions, or are backed by them.</p>
+<ul class="tight">
+  <li><strong>The holder loses when rates rise.</strong> In our model, a 2022-style rise (+4 points over 18 months) cut the value of the 2021 mortgage stock by about <strong>13%</strong>. Applied to who held it at the end of 2021, that is roughly <strong>$344B</strong> for the Federal Reserve, <strong>$387B</strong> for commercial banks and <strong>$823B</strong> for everyone else: <strong>about $1.55T</strong> in total (model estimate, market value). An adjustable-rate loan would have kept its value; the borrower would have carried the rise instead.</li>
+  <li><strong>The public took a large share.</strong> At the end of 2021 the Fed held <strong>$2.6T</strong> of mortgage-backed securities, about a fifth of all US mortgage debt. The Fed has since run a cumulative operating loss of <strong>$231B</strong>: the interest it pays on bank reserves exceeds what its long-term fixed-rate bonds earn. Until it earns that back, it sends nothing to the Treasury. Mortgage bonds are 28% of its assets; the rest is mostly long-term Treasuries with the same problem.</li>
+  <li><strong>Rate hikes barely reached existing borrowers.</strong> From the end of 2021 to now, the rate on a new mortgage rose <strong>4.05 points</strong>. The average rate actually paid on outstanding mortgages rose <strong>0.77 points</strong> (19% pass-through). That is about <strong>$109B a year</strong> in extra interest for households, against about <strong>$567B</strong> if loans were adjustable. Fixed rates blunt how hard Fed rate rises hit households' budgets.</li>
+  <li><strong>Lock-in freezes the market.</strong> Each point of gap between the new rate and the rate owners already pay cuts new for-sale listings by <strong>6.7%</strong> (2016–2026 data). The gap is now about 3 points, and 79% of loans are more than a point below market. In the matching model, locked-in owners stop selling <em>and</em> stop buying, so the market mostly thins rather than tips into shortage. Prices rise only slightly (+0.2–0.4 points), while the households left without a home rise from 13.2% to 14.2% and buyers' regret rises a little.</li>
+</ul>
+<figure>
+  <div class="plate"><img src="fig/fixed_rate_data.png" alt="Three panels: mortgage spread against Fed MBS purchases 2003-2026; new versus average outstanding mortgage rate showing a 3-point gap; Fed MBS holdings peaking near 2.7 trillion dollars and Fed cumulative operating loss of about 231 billion dollars."></div>
+  <figcaption><b>The data.</b> Left: Fed MBS buying and the mortgage spread. Middle: the lock-in gap between the new rate and the rate owners already pay (rebuilt from the full rate history). Right: Fed MBS holdings and its cumulative operating loss.</figcaption>
+</figure>
+<figure>
+  <div class="plate"><img src="fig/s08_fixed_rate.png" alt="Three panels: value to the holder of a fixed-rate loan falling about 16 percent at plus 4 points; model losses by holder from a plus 4 point shock; lock-in effects on price premium and buyers left without a home."></div>
+  <figcaption><b>The model.</b> Left: a fixed-rate loan's value to its holder falls as rates rise. Middle: model losses by holder in a 2022-style shock. Right: lock-in in the matching model.</figcaption>
+</figure>
+<p>Two parts of the common story did not hold up in our tests. <strong>We found no clear subsidy through lower mortgage rates:</strong> in months when the Fed was buying mortgage bonds, the gap between mortgage and Treasury rates was only 0.10 points lower, and not significantly so. Rate volatility explains the gap far better, which fits the gap mostly being the price of the refinancing option. <strong>That option is priced, not free to the system:</strong> in the model it costs borrowers 0.04–0.32 points a year in a higher rate, more when rates are high. We did not measure whether weaker pass-through made consumer inflation higher or longer-lasting; that needs a macroeconomic model or cross-country comparison.</p>
+
+<h2><span class="num">7</span>Why mortgages? Four other ways to pay for housing</h2>
+<p>A mortgage lets a household bid for a home with income it has not earned yet. We ran the same matching market under five ways of paying for housing: cash only (an extreme benchmark), market-rate mortgages, subsidised fixed-rate mortgages (rate 1 point lower, as a scenario), government-built homes let at cost to the lowest-income 15%, and a Japan-like market where homes sell at construction cost and lose value with age. Each was run with today's shortage and with supply that responds to price.</p>
+<h3>In the model</h3>
+<ul class="tight">
+  <li><strong>Credit inflates prices only when homes are short.</strong> With today's shortage, what buyers pay existing owners for land each year goes from <strong>1.2%</strong> of income with cash only to <strong>2.4%</strong> with market mortgages and <strong>2.9%</strong> with subsidised fixed-rate loans. When supply responds to price, it is <strong>zero</strong> under every option: credit then lets more households buy (55% → 78%) without raising prices.</li>
+  <li><strong>At-cost public housing reaches the households that mortgages miss.</strong> It houses <strong>78%</strong> of the lowest-income fifth, against 3% with market mortgages and 12% with subsidised ones. It puts about <strong>$33k</strong> of public money at risk per household, against <strong>$229k</strong> of government-guaranteed loan balances in the subsidised mortgage system.</li>
+  <li><strong>Depreciating homes remove the land payment altogether.</strong> In the Japan-like market, homes are consumption goods that sell at building cost and lose value with age. No one pays a premium to existing owners for land.</li>
+</ul>
+<figure>
+  <div class="plate"><img src="fig/s09_financing_regimes.png" alt="Three bar charts across nine financing scenarios: land payments as a share of income, highest for subsidised fixed mortgages with a shortage and zero with responsive supply; the lowest-income fifth housed, highest with public housing at cost; public money at risk, highest for subsidised mortgages."></div>
+  <figcaption><b>The model.</b> Money paid to existing owners for land, the lowest-income fifth housed, and public money at risk, under each way of paying for housing. Blue: today's shortage. Green: supply responds to price.</figcaption>
+</figure>
+<h3>In the data</h3>
+<ul class="tight">
+  <li><strong>The US and Japan went opposite ways.</strong> Since 1995, inflation-adjusted house prices rose <strong>88%</strong> in the US and fell <strong>23%</strong> in Japan. Germany was flat; the UK rose 144%; Austria, despite its large social-housing sector, rose 26%.</li>
+  <li><strong>The land premium is real money every year.</strong> Each home sold today carries about <strong>$71k</strong> of value above what building costs justify. Across <strong>4.0 million</strong> sales a year, that is about <strong>0.9% of GDP</strong> paid to existing owners for land, about a third of the model's figure.</li>
+  <li><strong>For a young family it is a large opportunity cost.</strong> A first-time buyer pays that $71k premium through a 30-year mortgage: about <strong>$5,500 a year</strong>, <strong>6.3%</strong> of median household income. Kept and invested instead, those payments would be worth <strong>$192k–$277k</strong> after 30 years in today's dollars (3–5% real returns). Measured against income growth since 2000, the premium is $93k: <strong>$7,200 a year</strong> (8.2% of income), or <strong>$251k–$362k</strong> after 30 years.</li>
+</ul>
+<figure>
+  <div class="plate"><img src="fig/housing_growth_data.png" alt="Left: real house prices for the US, Japan, Germany, Austria, UK and Singapore since 1970. Middle: scatter of 20 countries, house price growth against GDP per person growth. Right: bars showing a young family's land premium payments invested for 30 years, 192 to 362 thousand dollars."></div>
+  <figcaption><b>The data.</b> Inflation-adjusted house prices since 1970; house-price growth vs GDP growth across 20 countries (not causal); and what a young family's land premium would be worth if invested instead.</figcaption>
+</figure>
+<p><strong>What this does not show.</strong> It does not show that the US way of owning homes holds back national growth. Across 20 rich countries, faster house-price growth goes with <em>faster</em> GDP growth (+0.21, not significant), most likely because growth pushes house prices up. Japan, where homes depreciate, has also grown slowly, so it is no proof that depreciating homes deliver growth. What the evidence supports is narrower: in a shortage, mortgage credit and its subsidies are capitalised into land, and that land premium is paid by young families in money they cannot save, invest or spend on anything else.</p>
+
+<h2><span class="num">8</span>Who pays: future families</h2>
+<p>A home's land value is the present value of the scarcity rents that future occupants will pay to live there. So when land values rise and the home provides no more housing than before, today's owner gains exactly what future buyers and renters will have to pay. Productive capital works differently: when a company becomes more valuable, the gain is backed by output it will create.</p>
+<p>The part of house prices above what building costs justify is therefore not new wealth. It is a claim on the incomes of future families, and it creates nothing that will help them pay it. The part of the price that pays for construction and upkeep is real.</p>
+<ul class="tight">
+  <li><strong>Today's claim on future families is $6.2–8.2T.</strong> That is the land premium across owner-occupied homes, measured against building costs and against income growth since 2000: <strong>$71k–93k per home</strong>, which the next buyer of each home must pay. People 55 and over hold <strong>$3.9–5.1T</strong> of it; people under 40 hold <strong>$0.8–1.0T</strong>.</li>
+  <li><strong>Ownership has shifted to older households.</strong> People 55 and over held <strong>57%</strong> of US home equity in 1990 and hold <strong>73%</strong> today; under-40s went from <strong>10% to 7%</strong>. Under-40s own $6.1T of real estate carrying $3.6T of mortgages; people 55 and over own $31.1T carrying $4.9T. Around 2010, under-40s' combined home equity was negative.</li>
+  <li><strong>Each generation's gain is the next one's cost.</strong> A household that bought a typical home at 30 in 1975 paid <strong>3.2× income</strong> and had gained <strong>$129k</strong> (in today's dollars, after inflation) when it sold at 60 in 2005. One that bought in 1995 paid <strong>2.9×</strong> and gained <strong>$172k</strong> by 2025. The 2025 buyer who paid that gain is paying <strong>4.1× income</strong>, and is already 3% down.</li>
+  <li><strong>It only works while the next generation keeps paying.</strong> The claim holds its value only if each new generation pays the premium again. If supply catches up, the premium shrinks, and the last households to buy take the loss. Japan's real house prices fell by about half after 1991.</li>
+</ul>
+<figure>
+  <div class="plate"><img src="fig/generations.png" alt="Left: share of US home equity by age group 1990-2026, people 55 and over rising, under-40s falling and briefly negative around 2010. Middle: typical home price to median income for buyers at age 30, about 3 in the 1980s and 1990s and above 4 recently. Right: real gains of each buying generation, large for buyers from 1975 to 2015 and negative for 2021 onward."></div>
+  <figcaption><b>Who pays.</b> Left: share of US home equity by age group (Federal Reserve Distributional Financial Accounts). Middle: typical home price relative to median income in the year a 30-year-old buys. Right: each buying generation's real gain by the time it sells at 60, or so far.</figcaption>
+</figure>
+<p>Not all past gains are transfers: some reflect better homes and real costs, which is why the claim above counts only value beyond building costs. That the land premium is a transfer from future families follows from the arithmetic. Whether to call it theft is a judgment this paper leaves to the reader.</p>
+
+<h2><span class="num">9</span>What the evidence supports, and what it does not yet</h2>
 <p>A whitepaper that argues for change has to be clear about the strength of each claim. This is our own assessment:</p>
 <div class="table-wrap">
 <table>
   <thead><tr><th>Claim</th><th>Status</th><th>Evidence</th></tr></thead>
   <tbody>
+    <tr><td>Land-price gains are claims on future families' income</td><td><span class="status s-strong">Supported</span></td><td>Follows from how land is valued; today's claim is $6.2–8.2T ($71k–93k per home)</td></tr>
+    <tr><td>Home equity has shifted to older households</td><td><span class="status s-strong">Supported</span></td><td>55+ share 57% → 73% since 1990; under-40s 10% → 7%</td></tr>
+    <tr><td>Today's buyers pay far more of their income to get in</td><td><span class="status s-strong">Supported</span></td><td>4.1× income in 2025 vs 2.9× in 1985–1995; earlier buyers' gains were paid by later ones</td></tr>
     <tr><td>The US is short about 4 million homes relative to would-be households</td><td><span class="status s-strong">Supported</span></td><td>3.8M central estimate; 0–4.9M across assumptions; consistent with published estimates</td></tr>
     <tr><td>Metros with bigger shortages see faster rent and price growth</td><td><span class="status s-strong">Supported</span></td><td>Metro panel: +2.2% rents, +5.9% prices per 10 homes per 1,000 residents short; robust to the boundary filter</td></tr>
     <tr><td>Building more homes slows rent and price growth</td><td><span class="status s-strong">Supported</span></td><td>Same population growth, 10 more homes per 1,000 residents: rents −2.0%, prices −3.7%. Bias runs against the finding</td></tr>
@@ -227,6 +287,15 @@ code { font-size: 15px; }
     <tr><td>Renters pay about $100B a year more than income growth would imply</td><td><span class="status s-strong">Supported</span></td><td>Measured gap since 2000; size depends on base year; not all of it is caused by the shortage</td></tr>
     <tr><td>Most of the money is a transfer, not destroyed output</td><td><span class="status s-strong">Supported</span></td><td>Directly destroyed output is $2–8B a year. Wider growth losses (workers unable to move to productive cities) are argued in the literature but disputed, and we did not measure them</td></tr>
     <tr><td>Shortage harms concentrate on the lowest-ranked households</td><td><span class="status s-mixed">Model only</span></td><td>Follows from shared-preference matching; not measured in household data</td></tr>
+    <tr><td>Fixed-rate mortgages move rate risk from borrowers to lenders, a large share of them public</td><td><span class="status s-strong">Supported</span></td><td>Fed held $2.6T (about a fifth of mortgage debt); model loss about $1.55T across holders in a 2022-style shock; Fed operating loss $231B</td></tr>
+    <tr><td>Rate hikes reach existing borrowers only weakly</td><td><span class="status s-strong">Supported</span></td><td>19% pass-through since 2021: +$109B a year in interest vs +$567B if adjustable</td></tr>
+    <tr><td>Rate lock-in cuts homes offered for sale</td><td><span class="status s-strong">Supported</span></td><td>−6.7% new listings per point of rate gap; gap now about 3 points</td></tr>
+    <tr><td>Lock-in raises prices</td><td><span class="status s-mixed">Small, model only</span></td><td>+0.2–0.4 points in the matching model; not estimated in data</td></tr>
+    <tr><td>Fed mortgage-bond buying lowered mortgage rates</td><td><span class="status s-open">Not found</span></td><td>−0.10 points, not significant, in our monthly spread test</td></tr>
+    <tr><td>With homes short, mortgage credit and subsidies flow into land prices</td><td><span class="status s-mixed">Model</span></td><td>Land payments 1.2% (cash) → 2.4% (mortgages) → 2.9% (subsidised) of income; zero when supply responds</td></tr>
+    <tr><td>At-cost public housing reaches the lowest incomes with less public money at risk</td><td><span class="status s-mixed">Model</span></td><td>78% of the bottom fifth housed vs 3–12%; $33k vs $229k public exposure per household</td></tr>
+    <tr><td>Young families pay a large land premium</td><td><span class="status s-strong">Supported</span></td><td>$5,500–7,200 a year (6–8% of median income); $192k–$362k if invested for 30 years</td></tr>
+    <tr><td>Homes that depreciate (Japan-like) lead to faster national growth</td><td><span class="status s-open">Not shown</span></td><td>Across countries, faster price growth goes with faster growth; Japan grew slowly</td></tr>
     <tr><td>Low interest rates inflate prices mainly where supply is constrained</td><td><span class="status s-mixed">Mixed</span></td><td>Confirmed with a land-share proxy; not with the pre-specified index; not before 2020</td></tr>
   </tbody>
 </table>
@@ -235,7 +304,7 @@ code { font-size: 15px; }
   <p><strong>What the evidence establishes.</strong> The country is short of homes. Where the shortage is bigger, rents and prices rise faster. Where more is built, they rise more slowly. The extra money flows from renters and new buyers to existing owners. We do not test what caused the shortage. Prior research links land-use rules to high prices in constrained metros (Glaeser &amp; Gyourko 2018), but our data cannot separate rules from other barriers.</p>
 </div>
 
-<h2><span class="num">7</span>What would fix it, and how to know if it is getting worse</h2>
+<h2><span class="num">10</span>What would fix it, and how to know if it is getting worse</h2>
 <p>In the model, the remedy is to make supply responsive again. Responsive supply removes the scarcity rent, the incentive to withhold, and the link between interest rates and asset prices, all at once. The metro data support the central step: more building, slower rent growth.</p>
 <ul class="tight">
   <li><strong>Let quantity respond to price.</strong> Wherever homes sell far above the cost of building them, find and remove what stops new supply. Which barriers matter most in each metro is beyond what this paper tests.</li>
@@ -253,7 +322,7 @@ code { font-size: 15px; }
   <li>Natural experiments in reform (Auckland 2016, Minneapolis 2040) to measure what happens to quantity and rents when supply is freed.</li>
 </ol>
 
-<h2><span class="num">8</span>Method and reproducibility</h2>
+<h2><span class="num">11</span>Method and reproducibility</h2>
 <p>Everything above is produced by open Python code: an assignment-game solver with exact core bounds, Gale–Shapley, metro panels and local projections. Running <code>python run_all.py</code> downloads the public data and regenerates every number and figure. The full technical framework, with propositions and proofs, is in <code>paper/framework.md</code> in the repository.</p>
 <p class="refs">Ashlagi, Kanoria &amp; Leshno (2017) <i>JPE</i>. Demange, Gale &amp; Sotomayor (1986) <i>JPE</i>. Gale &amp; Shapley (1962) <i>AMM</i>. Glaeser &amp; Gyourko (2018) <i>JEP</i>. Greaney (2020) working paper. Hsieh &amp; Moretti (2019) <i>AEJ: Macro</i>. Leonard (1983) <i>JPE</i>. Pittel (1989) <i>SIAM J. Discrete Math.</i> Saiz (2010) <i>QJE</i>. Shapley &amp; Shubik (1971) <i>IJGT</i>.</p>
 

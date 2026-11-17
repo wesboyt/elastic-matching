@@ -22,6 +22,11 @@ STEPS = [
     "data_pipeline/shortage.py",
     "sims/s07_housing_history.py",
     "data_pipeline/metro_shortage.py",
+    "data_pipeline/fixed_rate_data.py",
+    "sims/s08_fixed_rate.py",
+    "sims/s09_financing_regimes.py",
+    "data_pipeline/housing_growth_data.py",
+    "data_pipeline/generations.py",
 ]
 
 if __name__ == "__main__":

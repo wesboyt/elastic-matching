@@ -54,7 +54,32 @@ FRED_SERIES = {
     "ETOTALUSQ176N": "Total housing inventory (thousands), 2000-",
     "SPPOP65UPTOZSUSA": "Population 65+ share of total (%), World Bank, 1960-",
     "B230RC0A052NBEA": "US population (thousands), BEA, 1929-",
+    # fixed-rate mortgages: who holds the risk
+    "WSHOMCB": "Fed holdings of mortgage-backed securities ($M), weekly",
+    "WALCL": "Fed total assets ($M), weekly",
+    "RESPPLLOPNWW": "Fed earnings remittances due to Treasury ($M; negative = deferred asset)",
+    "TMBACBW027SBOG": "MBS held by all commercial banks ($B), weekly",
+    "HHMSDODNS": "Household mortgage debt outstanding ($M), quarterly",
+    "MORTGAGE15US": "15-year fixed mortgage rate, weekly",
+    "MORTGAGE5US": "5/1 ARM rate, weekly, 2005-2022",
+    "DFF": "Effective federal funds rate, daily",
+    "ACTLISCOUUS": "Active for-sale listings, US (Realtor.com), monthly 2016-",
+    "NEWLISCOUUS": "New for-sale listings, US (Realtor.com), monthly 2016-",
+    # why mortgages? bank lending mix and investment
+    "RELACBW027SBOG": "Real estate loans, all commercial banks ($B)",
+    "TOTLL": "Total loans and leases, all commercial banks ($B)",
+    "BUSLOANS": "Commercial and industrial loans, all commercial banks ($B)",
+    "A008RE1Q156NBEA": "Nonresidential fixed investment, share of GDP (%)",
+    "A011RE1Q156NBEA": "Residential fixed investment, share of GDP (%)",
+    "EXHOSLUSM495S": "Existing home sales (SAAR), last 13 months only",
 }
+
+# cross-country: BIS real residential property prices and World Bank real GDP per capita
+COUNTRIES = {"AU": "AUS", "AT": "AUT", "BE": "BEL", "CA": "CAN", "CH": "CHE", "DE": "DEU", "DK": "DNK",
+             "ES": "ESP", "FI": "FIN", "FR": "FRA", "GB": "GBR", "IE": "IRL", "IT": "ITA", "JP": "JPN",
+             "KR": "KOR", "NL": "NLD", "NO": "NOR", "NZ": "NZL", "SE": "SWE", "US": "USA", "SG": "SGP"}
+FRED_SERIES.update({f"Q{c2}R628BIS": f"Real residential property prices, {c2} (BIS)" for c2 in COUNTRIES})
+FRED_SERIES.update({f"NYGDPPCAPKD{c3}": f"Real GDP per capita, {c3} (World Bank)" for c3 in COUNTRIES.values()})
 
 # Census: metro population (2010-2019 estimates) and annual building permits by CBSA
 CENSUS_FILES = {
@@ -85,6 +110,27 @@ def get(url: str, dest: Path, refresh: bool) -> bool:
         return False
 
 
+def get_dfa(refresh: bool) -> None:
+    """Federal Reserve Distributional Financial Accounts (zip of CSVs), extracted as data only."""
+    import io
+    import zipfile
+    dest = RAW / "dfa"
+    if dest.exists() and any(dest.glob("*.csv")) and not refresh:
+        print("  have dfa/")
+        return
+    try:
+        r = requests.get("https://www.federalreserve.gov/releases/z1/dataviz/download/zips/dfa.zip", timeout=(15, 120))
+        r.raise_for_status()
+        dest.mkdir(parents=True, exist_ok=True)
+        with zipfile.ZipFile(io.BytesIO(r.content)) as z:
+            for name in z.namelist():
+                if name.lower().endswith(".csv") and "/" not in name.strip("/") and ".." not in name:
+                    (dest / name).write_bytes(z.read(name))
+        print(f"  got  dfa/ ({len(list(dest.glob('*.csv')))} CSVs)")
+    except Exception as e:  # noqa: BLE001
+        print(f"  FAIL dfa: {e}")
+
+
 def main(refresh: bool = False):
     RAW.mkdir(parents=True, exist_ok=True)
     print("[fetch] Zillow")
@@ -93,6 +139,8 @@ def main(refresh: bool = False):
     print("[fetch] FRED")
     for sid in FRED_SERIES:
         get(FRED + sid, RAW / f"fred_{sid}.csv", refresh)
+    print("[fetch] Fed distributional accounts")
+    get_dfa(refresh)
     print("[fetch] Census")
     for name, url in CENSUS_FILES.items():
         get(url, RAW / name, refresh)

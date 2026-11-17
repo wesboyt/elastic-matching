@@ -418,6 +418,91 @@ metros are kept (`outputs/tables/metro_shortage_sensitivity.csv`).
 * *Causation:* this is still an association. An instrument for supply,
   such as geography or regulation shocks, would make it causal.
 
+### 5.7 Fixed-rate mortgages (`data_pipeline/fixed_rate_data.py`, `sims/s08_fixed_rate.py`)
+
+**Data.**
+
+* *Fed MBS buying and spreads:* the spread of the 30-year mortgage rate over
+  the 10-year Treasury, regressed on Fed net MBS purchases (% of mortgage
+  debt per year), rate volatility and the 10-year level (NW SEs, 2003–).
+  Purchases: −0.017pp per 1% of debt (se 0.018), i.e. −0.10pp in active
+  months, not significant. Volatility: +0.55 (se 0.12).
+* *Lock-in:* the outstanding mortgage rate is rebuilt from 1971–now rate
+  history (0.5%/month turnover, 5%/month refinancing when 0.75pp in the
+  money). It is 4.11% now vs 7.14% for a new loan, and 79% of loans are
+  >1pp below market. New listings fall 6.74% per pp of gap (se 0.74).
+* *Pass-through* since end-2021 is 19% (+0.77pp vs +4.05pp): +$109B/yr in
+  interest vs +$567B if adjustable.
+* *Holdings, end-2021:* Fed $2.6T MBS, banks $2.9T. The Fed's deferred
+  asset is now $231B.
+
+**Model.**
+
+* *Rate model:* Vasicek short rate, fair coupons solved by Monte Carlo.
+* *Refinancing option:* worth 0.04–0.32pp/yr, rising with the rate level.
+* *Rate shock:* +4pp over 18 months cuts the 2021 stock's value by 13%,
+  about $1.55T across holders (Fed $344B, banks $387B, others $823B).
+* *Lock-in in the matching market:* homes per buyer fall only 2.8% at a
+  4pp gap, because movers leave both sides. The price effect is small;
+  exclusion rises from 13.2% to 14.2%.
+
+### 5.8 Financing regimes and young families' opportunity cost (`sims/s09_financing_regimes.py`, `data_pipeline/housing_growth_data.py`)
+
+**Model.** We compare five regimes (cash, market mortgage, subsidised fixed
+at −1pp as a scenario, public at cost for the lowest-income 15%, Japan-like
+depreciating) at buyer-optimal prices, with a shortage (0.97) and with
+elastic supply.
+
+* *Land payments* (excess over construction cost × 1/20 turnover) are 1.2%,
+  2.4% and 2.9% of income under cash, mortgages and subsidised loans with a
+  shortage. They are zero under every regime with elastic supply.
+* *Public housing* houses 78% of the bottom fifth, with $33k of public
+  money at risk per household vs $229k of guaranteed balances.
+
+**Data.**
+
+* *Real house prices since 1995 (BIS):* US +88%, Japan −23%.
+* *Land premium:* $71k per home × 4.0M sales = 0.88% of GDP per year.
+* *Young family:* the premium costs $5.5k/yr (6.3% of median income) at
+  today's mortgage rate. Invested instead (deflated at 2.5% inflation), it
+  would be worth $192–277k after 30 years at 3–5% real.
+* *Cross-country (20 countries, 1995–2024):* GDP-per-person growth on
+  house-price growth gives +0.21 (se 0.12), controlling for starting income.
+  Reverse causality makes this uninformative about the growth claim, and
+  Japan is a counterexample to "depreciating homes deliver growth".
+* *Context:* real-estate loans rose from 24% to 42% of US bank loans and
+  business loans fell from 34% to 21%. Changes in nonresidential investment
+  on changes in mortgage debt give −0.066 (se 0.040). Both are kept as
+  context only.
+
+### 5.9 Who pays: future families (`data_pipeline/generations.py`)
+
+**Identity.** Land value $L_t = \sum_{s>t} R_s/(1+r)^{s-t}$, where $R_s$
+are the scarcity rents future occupants pay. A rise in $L$ with unchanged
+housing services is a rise in the present value of what future occupants
+pay. Its counterpart is no new output, unlike a rise in the value of
+productive capital.
+
+**Holders (Fed DFA).** The 55+ share of home equity rose from 57% (1990) to
+73% (2026), while under-40s fell from 10% to 7%. Under-40s hold $6.1T of
+real estate against $3.6T of mortgages; people 55+ hold $31.1T against
+$4.9T. Under-40s' aggregate equity was negative around 2010.
+
+**Claim.** The land premium × owner-occupied homes is $6.2T (vs building
+cost) to $8.2T (vs income growth), allocated by real-estate shares: 55+
+$3.9–5.1T, under-40s $0.8–1.0T.
+
+**Cohorts.** A typical home is bought at 30 (ZHVI chained to FHFA back to
+1975; income chained to disposable income per person before 1984).
+
+| Bought | Price / income | Real gain at sale (age 60) |
+|---|---|---|
+| 1975 | 3.2× | +$129k by 2005 |
+| 1995 | 2.9× | +$172k by 2025 |
+| 2025 | 4.1× | −3% so far |
+
+Realised gains are paid by the buyer at the time of sale.
+
 ## 6. Experiments to detect regression
 
 A market is **regressing** if, over time, (i) $\hat\varepsilon_s$ falls,

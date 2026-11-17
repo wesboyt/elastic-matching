@@ -1,0 +1,8 @@
+D1 spread (30yr mortgage - 10yr Treasury), 2003-01 to 2026-11, n=287:
+   Fed purchases (per 1% of mortgage debt per year): b = -0.017pp (NW se 0.018); rate volatility b = +0.553 (0.119); 10yr level b = -0.001 (0.035)
+   In months of active buying (avg 6.1% of debt per year) the spread is -0.10pp lower
+D2 lock-in: average outstanding mortgage rate 4.11% vs market 7.14% (gap +3.04pp); 79% of loans are >1pp below market
+   new listings: b = -6.74% per pp of gap (NW se 0.74); n=124  -> lambda = 0.067
+D3 end-2021 holdings ($B): Federal Reserve 2,615, Commercial banks 2,941, All other holders (incl. GSEs, funds, foreign) 6,258
+   Fed MBS peak $2,718B (2022-02); now $1,884B; Fed cumulative operating loss (deferred asset) now $231B (peak $246B); MBS share of Fed assets now 28%
+D4 transmission 2021-12 to 2026-11: market rate +4.05pp, average borrower's rate +0.77pp (19% pass-through). On $14,011B of mortgage debt: +$109B/yr interest vs +$567B/yr if all loans were adjustable

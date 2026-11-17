@@ -1,0 +1,10 @@
+T1 share of home equity held by age group, 1990 -> 2026: ageunder40 10%->7%, age40to54 32%->20%, age55to69 35%->39%, age70plus 22%->34%
+   2026: under-40s hold 6.1T of real estate with 3.6T of mortgages; 55+ hold 31.1T with 4.9T
+T2 land premium vs building cost: $6.2T held as a claim on future families ($71,311 per home); 55+ hold $3.9T, under-40s $0.8T
+T2 land premium vs income growth: $8.2T held as a claim on future families ($93,387 per home); 55+ hold $5.1T, under-40s $1.0T
+T3 bought 1975 at 30: 3.2x income, $174,133 today's $; real gain by sale 2005: $129,396 (+74%)
+T3 bought 1985 at 30: 2.9x income, $190,085 today's $; real gain by sale 2015: $66,802 (+35%)
+T3 bought 1995 at 30: 2.9x income, $201,713 today's $; real gain by sale 2025: $172,092 (+85%)
+T3 bought 2005 at 30: 4.1x income, $303,529 today's $; real gain so far to 2026: $60,131 (+20%)
+T3 bought 2015 at 30: 3.4x income, $256,887 today's $; real gain so far to 2026: $106,774 (+42%)
+T3 bought 2025 at 30: 4.1x income, $373,805 today's $; real gain so far to 2026: $-10,145 (-3%)

@@ -1,0 +1,7 @@
+G1 real house prices, 1995 -> latest (index 2000=100): US 85->160, JP 114->88, DE 110->108, AT 114->144, GB 68->166, SG nan->140
+G2 land absorption in the data (2026): excess value vs building cost $71,311/home x 4.02M existing-home sales = 0.88% of GDP per year
+G3 cross-country (n=20): GDP-per-person growth on house-price growth b = +0.210 (se 0.122); starting income b = -1.383 (0.703)
+G4 bank loans: real estate 24% (1973) -> 42% now; business 34% -> 21%
+   change in nonresidential investment (% GDP) on change in mortgage debt (% GDP): b = -0.066 (NW se 0.040), n=66
+G5 young family, premium vs building cost $71,311: costs $5,486/yr at 6.54% (6.3% of median income) for 30 years; invested instead at 5% real: $276,629 (at 3%: $191,922)
+G5 young family, premium vs income growth $93,387: costs $7,184/yr at 6.54% (8.2% of median income) for 30 years; invested instead at 5% real: $362,265 (at 3%: $251,335)

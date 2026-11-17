@@ -1,0 +1,19 @@
+          regime  supply  scarcity_premium  median_price_to_income  access  bottom_fifth_access  land_per_home  land_absorbs_pct_income  public_at_risk_per_hh
+       Cash only   Short             0.269                   2.852   0.528                0.000      42986.173                    1.211                  0.000
+       Cash only Elastic            -0.000                   2.260   0.550                0.000         -0.000                   -0.000                  0.000
+ Market mortgage   Short             0.179                   3.267   0.777                0.026      58408.530                    2.409                  0.000
+ Market mortgage Elastic            -0.000                   3.107   0.782                0.026         -0.000                   -0.000                  0.000
+Subsidised fixed   Short             0.210                   3.268   0.822                0.120      67282.968                    2.934             229118.503
+Subsidised fixed Elastic            -0.000                   3.054   0.834                0.172         -0.000                   -0.000             187411.157
+  Public at cost   Short             0.179                   3.267   0.927                0.776      58408.530                    2.409              33000.000
+  Public at cost Elastic            -0.000                   3.107   0.932                0.776         -0.000                   -0.000              33000.000
+    Depreciating Elastic            -0.000                   3.107   0.782                0.026         -0.000                   -0.000                  0.000
+
+Savings channel (Solow arithmetic):
+          regime  land_absorbs_pct_income  phi  long_run_output_gain_pct
+ Market mortgage                    2.409 0.25                     2.118
+ Market mortgage                    2.409 0.50                     4.237
+ Market mortgage                    2.409 1.00                     8.474
+Subsidised fixed                    2.934 0.25                     2.580
+Subsidised fixed                    2.934 0.50                     5.160
+Subsidised fixed                    2.934 1.00                    10.321
